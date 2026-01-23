@@ -1,0 +1,19 @@
+{
+  "name": "CURVE LADY CALCULATOR SYSTEM by Norn",
+  "short_name": "គណនាទំហំ",
+  "description": "Curve Lady Calculator System - Professional Size Calculator for Cambodian Fashion by Norn",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
