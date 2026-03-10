@@ -1,10 +1,11 @@
-const CACHE_NAME = 'curve-lady-calc-v1';
+const CACHE_NAME = 'curve-lady-calc-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
   '/icon-192.png',
-  '/icon-512.png'
+  '/icon-512.png',
+  '/splash-icon-fixed.png'
 ];
 
 // Install
