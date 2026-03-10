@@ -2532,14 +2532,6 @@
                     hip += 6;
                 }
 
-                // Ensure proper body proportions
-                // Waist should be smaller than bust (healthy proportion)
-                const minWaistRatio = 0.70; // Waist ≤ 70% of bust
-                const maxWaist = bust * minWaistRatio;
-                if (waist > maxWaist) {
-                    waist = maxWaist;
-                }
-
                 return {
                     bust: Math.round(bust),
                     waist: Math.round(waist),
