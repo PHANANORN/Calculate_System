@@ -1379,7 +1379,7 @@
                     <div class="form-group">
                         <label>📏 កម្ពស់</label>
                         <div class="input-with-unit">
-                            <input type="text" id="h" placeholder="១៦០" required>
+                            <input type="text" id="h" placeholder="១៦០" inputmode="decimal" autocomplete="off" required>
                             <span class="unit-toggle">
                                 <button type="button" class="active" data-unit-h="cm">cm</button>
                                 <button type="button" data-unit-h="inch">in</button>
@@ -1390,7 +1390,7 @@
                     <div class="form-group">
                         <label>⚖️ ទម្ងន់</label>
                         <div class="input-with-unit">
-                            <input type="text" id="w" placeholder="៦៥" required>
+                            <input type="text" id="w" placeholder="៦៥" inputmode="decimal" autocomplete="off" required>
                             <span class="unit-toggle">
                                 <button type="button" class="active" data-unit-w="kg">kg</button>
                                 <button type="button" data-unit-w="lb">lb</button>
@@ -1413,7 +1413,7 @@
                         <div class="form-group">
                             <label style="font-size: 12px;">ទ្រូង</label>
                             <div class="input-with-unit">
-                                <input type="text" id="bust" placeholder="១០៥">
+                                <input type="text" id="bust" placeholder="១០៥" inputmode="decimal" autocomplete="off">
                                 <span class="unit-toggle-small">
                                     <button type="button" class="active" data-unit-bust="cm">cm</button>
                                     <button type="button" data-unit-bust="inch">in</button>
@@ -1423,7 +1423,7 @@
                         <div class="form-group">
                             <label style="font-size: 12px;">ចង្កេះ</label>
                             <div class="input-with-unit">
-                                <input type="text" id="waist" placeholder="៨៥">
+                                <input type="text" id="waist" placeholder="៨៥" inputmode="decimal" autocomplete="off">
                                 <span class="unit-toggle-small">
                                     <button type="button" class="active" data-unit-waist="cm">cm</button>
                                     <button type="button" data-unit-waist="inch">in</button>
@@ -1433,7 +1433,7 @@
                         <div class="form-group">
                             <label style="font-size: 12px;">ត្រគាក</label>
                             <div class="input-with-unit">
-                                <input type="text" id="hip" placeholder="១១៥">
+                                <input type="text" id="hip" placeholder="១១៥" inputmode="decimal" autocomplete="off">
                                 <span class="unit-toggle-small">
                                     <button type="button" class="active" data-unit-hip="cm">cm</button>
                                     <button type="button" data-unit-hip="inch">in</button>
@@ -2618,6 +2618,8 @@
                     // SECONDARY 30%: weight as tiebreaker only
                     const weightScore = size.weight ? Math.abs(weight - weightMid) * 2 : 0;
 
+                    const totalScore = measureScore * 0.7 + weightScore * 0.3;
+
                     if (totalScore < minScore) {
                         minScore = totalScore;
                         bestMatch = sizeName;
@@ -2638,10 +2640,6 @@
                 let baseSizeIndex = SIZE_ORDER.indexOf(bestMatch);
                 if (baseSizeIndex === -1) baseSizeIndex = 4; // Default to L
 
-                // HEIGHT CORRECTION: tall frame needs bigger garment
-                // Every 12cm deviation from 165cm norm = ±1 size, cap: -1 to +2
-                const heightShift = Math.round((height - 165) / 12);
-                baseSizeIndex += Math.max(-1, Math.min(2, heightShift));
                 baseSizeIndex = Math.max(0, Math.min(baseSizeIndex, SIZE_ORDER.length - 1));
 
                 // Apply body description modifiers (ONLY IN AI MODE)
