@@ -2595,76 +2595,43 @@
                 // Weight-based matching with measurement validation
 
                 const sizes = SIZE_CHART;
+                // BUG #17 FIX: Measurements-PRIMARY (70%) + Weight-secondary (30%)
+                // OLD: weight filter FIRST → locked into 1 size regardless of height
+                // NEW: all 17 sizes scored → height-driven measurements now matter
                 let bestMatch = null;
                 let minScore = Infinity;
 
                 Object.keys(sizes).forEach(sizeName => {
                     const size = sizes[sizeName];
 
-                    // Primary: Check weight range (most important!)
-                    if (size.weight) {
-                        const weightInRange = weight >= size.weight[0] && weight <= size.weight[1];
-                        if (!weightInRange) {
-                            // Weight outside range = skip this size
-                            return;
-                        }
-                    }
-
-                    // Secondary: Calculate measurement fit score
                     const bustMid = (size.bust[0] + size.bust[1]) / 2;
                     const waistMid = (size.waist[0] + size.waist[1]) / 2;
                     const hipMid = (size.hip[0] + size.hip[1]) / 2;
+                    const weightMid = size.weight ? (size.weight[0] + size.weight[1]) / 2 : 0;
 
-                    // Score calculation (weight: 40%, measurements: 60%)
-                    const measureDiff = Math.abs(bust - bustMid) +
+                    // PRIMARY 70%: measurements capture height influence
+                    const measureScore =
+                        Math.abs(bust - bustMid) +
                         Math.abs(waist - waistMid) +
                         Math.abs(hip - hipMid);
 
-                    const weightDiff = size.weight ?
-                        Math.abs(weight - (size.weight[0] + size.weight[1]) / 2) * 3 : 0;
+                    // SECONDARY 30%: weight as tiebreaker only
+                    const weightScore = size.weight ? Math.abs(weight - weightMid) * 2 : 0;
 
-                    const score = measureDiff + weightDiff;
+                    const totalScore = measureScore * 0.7 + weightScore * 0.3;
 
-                    if (score < minScore) {
-                        minScore = score;
+                    if (totalScore < minScore) {
+                        minScore = totalScore;
                         bestMatch = sizeName;
                     }
                 });
 
-                // Fallback: if no match found, use weight-only
+                // Safeguard only — never triggers with complete SIZE_CHART
                 if (!bestMatch) {
-                    Object.keys(sizes).forEach(sizeName => {
-                        const size = sizes[sizeName];
-                        if (size.weight && weight >= size.weight[0] && weight <= size.weight[1]) {
-                            bestMatch = sizeName;
-                        }
-                    });
-                }
-
-                // Still no match? Use closest weight
-                if (!bestMatch) {
-                    let minWeightDiff = Infinity;
-                    Object.keys(sizes).forEach(sizeName => {
-                        const size = sizes[sizeName];
-                        if (size.weight) {
-                            const avgWeight = (size.weight[0] + size.weight[1]) / 2;
-                            const diff = Math.abs(weight - avgWeight);
-                            if (diff < minWeightDiff) {
-                                minWeightDiff = diff;
-                                bestMatch = sizeName;
-                            }
-                        }
-                    });
-                }
-
-                // ULTIMATE SAFEGUARD: If still no match, use default based on weight
-                if (!bestMatch) {
-                    if (weight < 45) bestMatch = 'XXS';
-                    else if (weight < 55) bestMatch = 'XS';
-                    else if (weight < 65) bestMatch = 'S';
+                    if (weight < 45) bestMatch = 'XS';
+                    else if (weight < 60) bestMatch = 'S';
                     else if (weight < 75) bestMatch = 'M';
-                    else if (weight < 90) bestMatch = 'L';
-                    else bestMatch = 'XL';
+                    else bestMatch = 'L';
                 }
 
                 let baseSizeIndex = SIZE_ORDER.indexOf(bestMatch);
