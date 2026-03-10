@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="km">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,13 @@
     <link rel="icon" href="icon-192.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap');
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Noto Sans Khmer', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -22,13 +27,13 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         #app {
             width: 100%;
             max-width: 100vw;
             padding: 12px;
         }
-        
+
         /* SPLASH */
         /* SPLASH SCREEN */
         #splash {
@@ -44,7 +49,7 @@
             justify-content: center;
             z-index: 9999;
         }
-        
+
         .splash-logo {
             width: 200px;
             height: 200px;
@@ -54,17 +59,17 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 24px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             border: 6px solid white;
         }
-        
+
         .splash-logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         #splash h1 {
             color: white;
             font-size: 22px;
@@ -72,25 +77,25 @@
             text-align: center;
             margin-bottom: 8px;
         }
-        
+
         #splash p {
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 13px;
             text-align: center;
         }
-        
+
         .splash-version {
             position: absolute;
             bottom: 30px;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 11px;
         }
-        
+
         /* APP */
         #app {
             display: none;
         }
-        
+
         /* INSTALL BANNER */
         #banner {
             position: sticky;
@@ -108,38 +113,39 @@
             box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
             animation: slideDown 0.4s ease-out;
         }
-        
+
         @keyframes slideDown {
             from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .banner-content {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         .banner-icon {
             font-size: 20px;
         }
-        
+
         .banner-text {
             font-weight: 600;
             font-size: 12px;
         }
-        
+
         .banner-buttons {
             display: flex;
             gap: 6px;
         }
-        
+
         .install-btn {
             background: white !important;
             color: #059669 !important;
@@ -150,17 +156,17 @@
             font-size: 11px;
             cursor: pointer;
             font-family: 'Noto Sans Khmer', sans-serif;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             transition: all 0.2s;
         }
-        
+
         .install-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-        
+
         .close-btn {
-            background: rgba(255,255,255,0.2) !important;
+            background: rgba(255, 255, 255, 0.2) !important;
             color: white !important;
             font-size: 16px;
             padding: 4px 10px !important;
@@ -169,20 +175,20 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         .close-btn:hover {
-            background: rgba(255,255,255,0.3) !important;
+            background: rgba(255, 255, 255, 0.3) !important;
         }
-        
+
         .container {
             max-width: 520px;
             margin: 0 auto;
             background: white;
             border-radius: 16px;
             padding: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 12px;
@@ -193,7 +199,7 @@
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(102, 126, 234, 0.25);
         }
-        
+
         .header::before {
             content: '';
             position: absolute;
@@ -201,37 +207,47 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.1) 50%,
-                transparent 70%
-            );
+            background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    transparent 70%);
             animation: shimmer 3s infinite;
         }
-        
+
         @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
         }
-        
-        .header > * {
+
+        .header>* {
             position: relative;
             z-index: 1;
         }
-        
+
         .header-icon {
             font-size: 36px;
             margin-bottom: 4px;
             animation: bounce 2s infinite;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
         }
-        
+
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
-        
+
         h2 {
             color: white;
             font-size: 18px;
@@ -242,18 +258,19 @@
             animation: fadeInDown 0.6s ease-out;
             line-height: 1.3;
         }
-        
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .subtitle {
             color: rgba(255, 255, 255, 0.95);
             font-size: 9px;
@@ -262,14 +279,14 @@
             letter-spacing: 0.2px;
             animation: fadeInDown 0.6s ease-out 0.1s backwards;
         }
-        
+
         .project {
             color: rgba(255, 255, 255, 0.85);
             font-size: 8px;
             font-weight: 500;
             animation: fadeInDown 0.6s ease-out 0.2s backwards;
         }
-        
+
         .hint-text {
             color: #6b7280;
             font-size: 10px;
@@ -277,7 +294,7 @@
             font-weight: 500;
             text-align: center;
         }
-        
+
         .info {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             padding: 12px 16px;
@@ -292,27 +309,27 @@
             overflow: hidden;
             animation: fadeInUp 0.6s ease-out 0.3s backwards;
         }
-        
-        
+
+
         .info-icon {
             font-size: 28px;
             display: inline-block;
-            animation: pulse 2s infinite;
+            animation: pulseScale 2s infinite;
             margin-right: 8px;
             flex-shrink: 0;
         }
-        
+
         .info-content {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
-        
+
         .info-text {
             text-align: left;
         }
-        
+
         .info-text strong {
             display: block;
             margin-bottom: 2px;
@@ -320,28 +337,36 @@
             font-size: 11px;
             font-weight: 800;
         }
-        
+
         .info-text span {
             font-size: 10px;
             opacity: 0.95;
         }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+
+        @keyframes pulseScale {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .info::before {
             content: '✨';
             position: absolute;
@@ -350,9 +375,9 @@
             left: 10px;
             top: 50%;
             transform: translateY(-50%);
-            animation: pulse 2s infinite;
+            animation: pulseFloat 2s infinite;
         }
-        
+
         .info::after {
             content: '✨';
             position: absolute;
@@ -361,25 +386,27 @@
             right: 10px;
             top: 50%;
             transform: translateY(-50%);
-            animation: pulse 2s infinite 1s;
+            animation: pulseFloat 2s infinite 1s;
         }
-        
-        @keyframes pulse {
-            0%, 100% {
+
+        @keyframes pulseFloat {
+
+            0%,
+            100% {
                 opacity: 0.08;
                 transform: translateY(-50%) scale(1);
             }
+
             50% {
                 opacity: 0.15;
                 transform: translateY(-50%) scale(1.1);
             }
         }
-        }
-        
+
         .form-group {
             margin-bottom: 10px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 5px;
@@ -387,8 +414,10 @@
             font-weight: 600;
             font-size: 13px;
         }
-        
-        input, textarea, select {
+
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 10px;
             border: 2px solid #e0e0e0;
@@ -396,73 +425,75 @@
             font-size: 14px;
             font-family: 'Noto Sans Khmer', sans-serif;
         }
-        
-        input:focus, textarea:focus, select:focus {
+
+        input:focus,
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: #667eea;
         }
-        
+
         textarea {
             min-height: 60px;
             resize: vertical;
         }
-        
+
         .hint {
             font-size: 10px;
             color: #888;
             margin-top: 3px;
             line-height: 1.4;
         }
-        
+
         .hint-important {
             color: #666;
             font-weight: 500;
             font-size: 10px;
             margin-top: 4px;
         }
-        
+
         .height-weight-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-        
+
         .height-weight-row .input-with-unit input {
             padding-right: 110px;
         }
-        
+
         @media (max-width: 600px) {
             .height-weight-row {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         .measurements-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 10px;
             margin-top: 10px;
         }
-        
+
         .input-with-unit {
             position: relative;
             display: flex;
             align-items: center;
             gap: 0;
         }
-        
+
         .input-with-unit input {
             flex: 1;
             padding-right: 110px;
         }
-        
+
         details {
             margin-bottom: 10px;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 8px;
         }
-        
+
         summary {
             cursor: pointer;
             color: #667eea;
@@ -471,15 +502,15 @@
             list-style: none;
             padding: 5px;
         }
-        
+
         summary::before {
             content: '▶ ';
         }
-        
+
         details[open] summary::before {
             content: '▼ ';
         }
-        
+
         .badge {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -493,12 +524,12 @@
             display: inline-block;
             vertical-align: middle;
         }
-        
+
         .badge.optional {
             background: linear-gradient(135deg, #8b9dc3 0%, #6b7d9e 100%);
             box-shadow: 0 2px 8px rgba(107, 125, 158, 0.3);
         }
-        
+
         .label-note {
             color: #9ca3af;
             font-size: 10px;
@@ -506,11 +537,11 @@
             font-style: normal;
             margin-left: 4px;
         }
-        
+
         .slider-group {
             margin: 10px 0;
         }
-        
+
         .slider-row {
             display: flex;
             justify-content: space-between;
@@ -518,11 +549,11 @@
             font-size: 12px;
             font-weight: 600;
         }
-        
+
         .slider-val {
             color: #667eea;
         }
-        
+
         input[type="range"] {
             width: 100%;
             height: 6px;
@@ -530,7 +561,7 @@
             background: #e0e0e0;
             border-radius: 5px;
         }
-        
+
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             width: 20px;
@@ -539,7 +570,7 @@
             border-radius: 50%;
             cursor: pointer;
         }
-        
+
         .slider-labels {
             display: flex;
             justify-content: space-between;
@@ -547,32 +578,32 @@
             color: #999;
             margin-top: 3px;
         }
-        
+
         .input-form {
             margin-top: 0;
         }
-        
+
         .result-section {
             margin-top: 20px;
         }
-        
+
         .result-main {
             background: white;
             border: 3px solid #667eea;
             box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
         }
-        
+
         .result-main .res-title {
             color: #667eea;
             font-size: 16px;
             font-weight: 800;
         }
-        
+
         .result-main .ai-badge {
             background: #667eea;
             color: white;
         }
-        
+
         .res-title-row {
             display: flex;
             justify-content: space-between;
@@ -582,7 +613,7 @@
             font-weight: 800;
             color: #667eea;
         }
-        
+
         .mode-toggle {
             display: flex;
             gap: 4px;
@@ -590,7 +621,7 @@
             padding: 3px;
             border-radius: 8px;
         }
-        
+
         .mode-btn {
             padding: 5px 10px;
             border: none;
@@ -603,24 +634,24 @@
             font-family: 'Noto Sans Khmer', sans-serif;
             color: #6b7280;
         }
-        
+
         .mode-btn.active {
             background: white;
             color: #667eea;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .mode-btn:hover:not(.active) {
             color: #667eea;
         }
-        
+
         .result-actions {
             display: flex;
             gap: 8px;
             margin-bottom: 12px;
             flex-wrap: wrap;
         }
-        
+
         .action-btn {
             flex: 1;
             min-width: 90px;
@@ -635,12 +666,12 @@
             transition: all 0.2s;
             font-family: 'Noto Sans Khmer', sans-serif;
         }
-        
+
         .action-btn:hover {
             background: #667eea;
             color: white;
         }
-        
+
         .calc-btn {
             width: 100%;
             padding: 14px;
@@ -656,59 +687,59 @@
             font-family: 'Noto Sans Khmer', sans-serif;
             margin-top: 16px;
         }
-        
+
         .calc-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
         }
-        
+
         #result {
             opacity: 0;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: opacity 0.4s ease, max-height 0.5s ease;
         }
-        
+
         #result.show {
             opacity: 1;
             max-height: 5000px;
             margin-top: 20px;
         }
-        
+
         .res-box {
             background: #f8f9fa;
             border-radius: 10px;
             padding: 12px;
             margin-bottom: 10px;
         }
-        
+
         .res-title {
             font-size: 14px;
             font-weight: 700;
             color: #667eea;
             margin-bottom: 8px;
         }
-        
+
         .res-content {
             font-size: 12px;
             line-height: 1.7;
             color: #333;
         }
-        
+
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-top: 8px;
         }
-        
+
         .info-card {
             background: white;
             padding: 10px;
             border-radius: 8px;
             border-left: 3px solid #667eea;
         }
-        
+
         .info-label {
             font-size: 10px;
             color: #888;
@@ -716,17 +747,17 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .info-value {
             font-size: 16px;
             font-weight: 700;
             color: #667eea;
         }
-        
+
         .info-full {
             grid-column: 1 / -1;
         }
-        
+
         .bmi-status {
             display: inline-block;
             padding: 2px 8px;
@@ -735,7 +766,7 @@
             font-weight: 700;
             margin-left: 5px;
         }
-        
+
         .card-value .bmi-status {
             display: block;
             margin-top: 6px;
@@ -744,26 +775,29 @@
             text-align: center;
             letter-spacing: 0.3px;
         }
-        
-        
-        .bmi-underweight { 
+
+
+        .bmi-underweight {
             color: #d97706;
         }
-        .bmi-normal { 
+
+        .bmi-normal {
             color: #059669;
         }
-        .bmi-overweight { 
+
+        .bmi-overweight {
             color: #dc2626;
         }
-        .bmi-obese { 
+
+        .bmi-obese {
             color: #991b1b;
         }
-        
+
         /* MODERN INFO STYLES */
         .modern-info-header {
             margin-bottom: 12px;
         }
-        
+
         .standard-badge {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -774,14 +808,14 @@
             font-weight: 700;
             box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
         }
-        
+
         .modern-info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             margin-bottom: 12px;
         }
-        
+
         .modern-info-card {
             background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
             border-radius: 12px;
@@ -795,22 +829,22 @@
             transition: all 0.3s;
             min-height: 110px;
         }
-        
+
         .modern-info-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .modern-info-card.highlight {
             background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
             border-color: #d1d5db;
         }
-        
+
         .card-icon {
             font-size: 32px;
             flex-shrink: 0;
         }
-        
+
         .card-content {
             flex: 1;
             display: flex;
@@ -819,7 +853,7 @@
             text-align: center;
             width: 100%;
         }
-        
+
         .card-label {
             font-size: 11px;
             color: #6b7280;
@@ -828,21 +862,21 @@
             margin-bottom: 2px;
             font-weight: 700;
         }
-        
+
         .card-value {
             font-size: 20px;
             font-weight: 900;
             color: #1f2937;
             text-align: center;
         }
-        
+
         .card-value .unit {
             font-size: 12px;
             font-weight: 600;
             color: #9ca3af;
             margin-left: 2px;
         }
-        
+
         .measurements-panel {
             background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
             border: 2px solid #60a5fa;
@@ -850,25 +884,25 @@
             padding: 12px;
             margin-top: 12px;
         }
-        
+
         .panel-header {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 10px;
         }
-        
+
         .panel-icon {
             font-size: 16px;
         }
-        
+
         .panel-title {
             font-size: 12px;
             font-weight: 700;
             color: #1e40af;
             flex: 1;
         }
-        
+
         .ai-badge-small {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -878,19 +912,19 @@
             font-weight: 800;
             letter-spacing: 0.5px;
         }
-        
+
         .measurements-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 10px;
         }
-        
+
         .measurements-panel .measurements-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
         }
-        
+
         .measurement-item {
             background: white;
             border-radius: 10px;
@@ -902,7 +936,7 @@
             justify-content: center;
             gap: 4px;
         }
-        
+
         .measurement-label {
             display: flex;
             align-items: center;
@@ -913,24 +947,24 @@
             font-weight: 700;
             margin-bottom: 2px;
         }
-        
+
         .measurement-icon {
             font-size: 12px;
         }
-        
+
         .measurement-value {
             font-size: 16px;
             font-weight: 900;
             color: #1f2937;
         }
-        
+
         .measurement-value .unit-small {
             font-size: 9px;
             font-weight: 600;
             color: #9ca3af;
             margin-left: 1px;
         }
-        
+
         .description-box {
             margin-top: 10px;
             padding: 10px;
@@ -940,15 +974,15 @@
             color: #4b5563;
             border-left: 3px solid #667eea;
         }
-        
+
         /* HISTORY SECTION */
         .history-section {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-        
+
         .history-header {
             padding: 14px 16px;
             background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
@@ -958,17 +992,17 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .history-header:hover {
             background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
         }
-        
+
         .history-title {
             font-weight: 700;
             font-size: 14px;
             color: #1f2937;
         }
-        
+
         .history-count {
             font-size: 11px;
             color: #6b7280;
@@ -977,28 +1011,28 @@
             border-radius: 12px;
             font-weight: 600;
         }
-        
+
         .toggle-icon {
             font-size: 12px;
             color: #9ca3af;
             transition: transform 0.3s;
         }
-        
+
         .toggle-icon.open {
             transform: rotate(180deg);
         }
-        
+
         .history-content {
             padding: 16px;
             animation: slideDown 0.3s ease-out;
         }
-        
+
         .history-actions {
             display: flex;
             justify-content: flex-end;
             margin-bottom: 12px;
         }
-        
+
         .history-action-btn {
             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: white;
@@ -1012,12 +1046,12 @@
             box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
             transition: all 0.2s;
         }
-        
+
         .history-action-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
         }
-        
+
         .history-item {
             background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
             border: 2px solid #e5e7eb;
@@ -1026,25 +1060,25 @@
             margin-bottom: 10px;
             transition: all 0.2s;
         }
-        
+
         .history-item:hover {
             border-color: #667eea;
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
         }
-        
+
         .history-item-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 8px;
         }
-        
+
         .history-date {
             font-size: 11px;
             color: #6b7280;
             font-weight: 600;
         }
-        
+
         .history-delete-btn {
             background: rgba(239, 68, 68, 0.1);
             color: #ef4444;
@@ -1056,34 +1090,34 @@
             font-weight: 700;
             transition: all 0.2s;
         }
-        
+
         .history-delete-btn:hover {
             background: rgba(239, 68, 68, 0.2);
         }
-        
+
         .history-item-data {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             font-size: 11px;
         }
-        
+
         .history-data-item {
             text-align: center;
         }
-        
+
         .history-data-label {
             color: #9ca3af;
             font-size: 9px;
             margin-bottom: 2px;
         }
-        
+
         .history-data-value {
             font-weight: 700;
             color: #1f2937;
             font-size: 12px;
         }
-        
+
         .history-pagination {
             display: flex;
             justify-content: center;
@@ -1093,7 +1127,7 @@
             padding-top: 16px;
             border-top: 2px solid #e5e7eb;
         }
-        
+
         .page-btn {
             background: white;
             border: 2px solid #e5e7eb;
@@ -1105,46 +1139,46 @@
             transition: all 0.2s;
             font-family: 'Noto Sans Khmer', sans-serif;
         }
-        
+
         .page-btn:hover:not(:disabled) {
             border-color: #667eea;
             background: #f3f4f6;
         }
-        
+
         .page-btn:disabled {
             opacity: 0.4;
             cursor: not-allowed;
         }
-        
+
         .page-btn.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-color: #667eea;
         }
-        
+
         .page-info {
             font-size: 12px;
             color: #6b7280;
             font-weight: 600;
         }
-        
+
         .history-empty {
             text-align: center;
             padding: 32px 16px;
             color: #9ca3af;
             font-size: 13px;
         }
-        
+
         @media (max-width: 480px) {
             .history-item-data {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
             .history-data-item:nth-child(3) {
                 grid-column: 1 / -1;
             }
         }
-        
+
         .size-item {
             background: white;
             border-radius: 8px;
@@ -1155,67 +1189,67 @@
             align-items: center;
             border: 2px solid #e0e0e0;
         }
-        
+
         .size-item.perfect {
             border-color: #4caf50;
             background: linear-gradient(to right, #f1f8f4, #e8f5e9);
             border-width: 3px;
         }
-        
+
         .size-item.perfect .size-label {
             color: #2e7d32;
         }
-        
+
         .size-item.perfect .size-value {
             color: #1b5e20;
         }
-        
+
         .size-item.tight {
             border-color: #ff9800;
             background: linear-gradient(to right, #fff8f0, #fff3e0);
             border-width: 2px;
         }
-        
+
         .size-item.tight .size-label {
             color: #e65100;
         }
-        
+
         .size-item.tight .size-value {
             color: #e65100;
         }
-        
+
         .size-item.loose {
             border-color: #2196F3;
             background: linear-gradient(to right, #f0f7ff, #e3f2fd);
             border-width: 2px;
         }
-        
+
         .size-item.loose .size-label {
             color: #1565c0;
         }
-        
+
         .size-item.loose .size-value {
             color: #0d47a1;
         }
-        
+
         .size-label {
             font-size: 13px;
             font-weight: 700;
             margin-bottom: 2px;
             color: #333;
         }
-        
+
         .size-reason {
             font-size: 10px;
             color: #666;
         }
-        
+
         .size-value {
             font-size: 20px;
             font-weight: 800;
             color: #667eea;
         }
-        
+
         .ai-badge {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -1226,14 +1260,14 @@
             display: inline-block;
             margin-left: 4px;
         }
-        
+
         .confidence {
             font-size: 11px;
             color: #4caf50;
             margin-top: 4px;
             font-weight: 600;
         }
-        
+
         .unit-toggle {
             position: absolute;
             right: 2px;
@@ -1245,7 +1279,7 @@
             padding: 3px;
             font-size: 13px;
         }
-        
+
         .unit-toggle button {
             background: transparent;
             border: none;
@@ -1258,12 +1292,12 @@
             color: #666;
             min-width: 45px;
         }
-        
+
         .unit-toggle button.active {
             background: #667eea;
             color: white;
         }
-        
+
         .unit-toggle-small {
             position: absolute;
             right: 2px;
@@ -1276,7 +1310,7 @@
             font-size: 13px;
             gap: 2px;
         }
-        
+
         .unit-toggle-small button {
             background: transparent;
             border: none;
@@ -1289,13 +1323,14 @@
             color: #666;
             min-width: 45px;
         }
-        
+
         .unit-toggle-small button.active {
             background: #667eea;
             color: white;
         }
     </style>
 </head>
+
 <body>
     <div id="splash">
         <div class="splash-logo">
@@ -1325,7 +1360,7 @@
                 <div class="subtitle">Curve Lady Calculator System</div>
                 <div class="project">Professional Size Calculator by Norn</div>
             </div>
-            
+
             <div class="hint-text">💡 ប្រើងាយស្រួល - ភាគច្រើនគ្រាន់តែកម្ពស់និងទម្ងន់ក៏គ្រប់គ្រាន់ហើយ!</div>
 
             <form id="form" class="input-form">
@@ -1351,7 +1386,7 @@
                             </span>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label>⚖️ ទម្ងន់</label>
                         <div class="input-with-unit">
@@ -1447,7 +1482,7 @@
                     <div class="res-title">👤 ព័ត៌មានអតិថិជន</div>
                     <div class="res-content" id="custInfo"></div>
                 </div>
-                
+
                 <div class="res-box result-main">
                     <div class="res-title-row">
                         <div>⭐ ទំហំដែលណែនាំ</div>
@@ -1464,13 +1499,13 @@
                     <div class="res-title">🏪 ពត៌មានផលិតផល</div>
                     <div class="res-content" id="prodInfo"></div>
                 </div>
-                
+
                 <div class="result-actions">
                     <button type="button" class="action-btn" id="copyBtn">📋 ចម្លង</button>
                     <button type="button" class="action-btn" id="shareBtn">📤 ចែករំលែក</button>
                     <button type="button" class="action-btn" id="newCalcBtn">🔄 គណនាថ្មី</button>
                 </div>
-                
+
                 <div class="history-section" style="margin-top: 16px;">
                     <div class="history-header" id="historyToggle">
                         <span class="history-title">📋 ប្រវត្តិគណនា</span>
@@ -1479,7 +1514,8 @@
                     </div>
                     <div class="history-content" id="historyContent" style="display: none;">
                         <div class="history-actions">
-                            <button type="button" class="history-action-btn" id="clearHistoryBtn">🗑️ សម្អាតទាំងអស់</button>
+                            <button type="button" class="history-action-btn" id="clearHistoryBtn">🗑️
+                                សម្អាតទាំងអស់</button>
                         </div>
                         <div id="historyList"></div>
                         <div class="history-pagination" id="historyPagination"></div>
@@ -1487,362 +1523,373 @@
                 </div>
             </div>
         </div>
-    
-    <script>
-// ===========================================
-// CURVE LADY CALCULATOR SYSTEM v2.0
-// Advanced AI Size Calculator
-// ===========================================
 
-// KHMER NUMBER CONVERSION
-const KHMER_DIGITS = ['០','១','២','៣','៤','៥','៦','៧','៨','៩'];
+        <script>
+            // ===========================================
+            // CURVE LADY CALCULATOR SYSTEM v2.0
+            // Advanced AI Size Calculator
+            // ===========================================
 
-// GLOBAL CALCULATION RESULT
-let lastCalculation = null;
-function khmerToNum(str) {
-    if (!str) return null;
-    str = String(str).trim();
-    for (let i = 0; i < 10; i++) {
-        str = str.split(KHMER_DIGITS[i]).join(i.toString());
-    }
-    const num = parseFloat(str);
-    return isNaN(num) ? null : num;
-}
+            // KHMER NUMBER CONVERSION
+            const KHMER_DIGITS = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩'];
 
-// UNIT CONVERSION
-const unitState = { 
-    height: 'cm', 
-    weight: 'kg',
-    bust: 'cm',
-    waist: 'cm',
-    hip: 'cm'
-};
+            // GLOBAL CALCULATION RESULT
+            let lastCalculation = null;
+            function khmerToNum(str) {
+                if (!str) return null;
+                str = String(str).trim();
+                for (let i = 0; i < 10; i++) {
+                    str = str.split(KHMER_DIGITS[i]).join(i.toString());
+                }
+                const num = parseFloat(str);
+                return isNaN(num) ? null : num;
+            }
 
-// CALCULATION MODE
-let calculationMode = 'ai'; // 'ai' or 'normal'
+            // UNIT CONVERSION
+            const unitState = {
+                height: 'cm',
+                weight: 'kg',
+                bust: 'cm',
+                waist: 'cm',
+                hip: 'cm'
+            };
 
-function convertToStandard(value, unit, type) {
-    if (type === 'height') {
-        if (unit === 'inch') return value * 2.54;
-        return value;
-    }
-    if (type === 'weight') {
-        if (unit === 'lb') return value * 0.453592;
-        return value;
-    }
-    if (type === 'measurement') {
-        if (unit === 'inch') return value * 2.54;
-        return value;
-    }
-    return value;
-}
+            // CALCULATION MODE
+            let calculationMode = 'ai'; // 'ai' or 'normal'
 
-// Unit toggle buttons - Updated to handle all toggles
-document.querySelectorAll('.unit-toggle button, .unit-toggle-small button').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const unitType = this.dataset.unitH || this.dataset.unitW || 
-                        this.dataset.unitBust || this.dataset.unitWaist || 
+            function convertToStandard(value, unit, type) {
+                if (type === 'height') {
+                    if (unit === 'inch') return value * 2.54;
+                    return value;
+                }
+                if (type === 'weight') {
+                    if (unit === 'lb') return value * 0.453592;
+                    return value;
+                }
+                if (type === 'measurement') {
+                    if (unit === 'inch') return value * 2.54;
+                    return value;
+                }
+                return value;
+            }
+
+            // Unit toggle buttons - Updated to handle all toggles
+            document.querySelectorAll('.unit-toggle button, .unit-toggle-small button').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const unitType = this.dataset.unitH || this.dataset.unitW ||
+                        this.dataset.unitBust || this.dataset.unitWaist ||
                         this.dataset.unitHip;
-        const group = this.parentElement;
-        
-        group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        if (this.dataset.unitH) unitState.height = unitType;
-        else if (this.dataset.unitW) unitState.weight = unitType;
-        else if (this.dataset.unitBust) unitState.bust = unitType;
-        else if (this.dataset.unitWaist) unitState.waist = unitType;
-        else if (this.dataset.unitHip) unitState.hip = unitType;
-    });
-});
+                    const group = this.parentElement;
 
-// MODE TOGGLE (AI vs Normal)
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('mode-btn')) {
-        const mode = e.target.dataset.mode;
-        calculationMode = mode;
-        
-        // Update button states
-        document.querySelectorAll('.mode-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        e.target.classList.add('active');
-        
-        // Recalculate if results are showing
-        if (!document.getElementById('result').classList.contains('show')) {
-            return;
-        }
-        
-        // Trigger recalculation
-        const form = document.getElementById('form');
-        if (form) {
-            const event = new Event('submit', { cancelable: true });
-            form.dispatchEvent(event);
-        }
-    }
-});
+                    group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
 
-// ===========================================
-// PWA INSTALLATION SYSTEM
-// Complete support for all platforms
-// ===========================================
+                    if (this.dataset.unitH) unitState.height = unitType;
+                    else if (this.dataset.unitW) unitState.weight = unitType;
+                    else if (this.dataset.unitBust) unitState.bust = unitType;
+                    else if (this.dataset.unitWaist) unitState.waist = unitType;
+                    else if (this.dataset.unitHip) unitState.hip = unitType;
+                });
+            });
 
-let deferredPrompt = null;
+            // MODE TOGGLE (AI vs Normal)
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('mode-btn')) {
+                    const mode = e.target.dataset.mode;
+                    calculationMode = mode;
 
-// Detect platform
-function detectPlatform() {
-    const ua = navigator.userAgent;
-    const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-    const isAndroid = /Android/.test(ua);
-    const isChrome = /Chrome/.test(ua) && !/Edge/.test(ua);
-    const isFirefox = /Firefox/.test(ua);
-    const isSafari = /Safari/.test(ua) && !isChrome;
-    
-    return { isIOS, isAndroid, isChrome, isFirefox, isSafari };
-}
+                    // Update button states
+                    document.querySelectorAll('.mode-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    e.target.classList.add('active');
 
-// Check if already installed
-function isAppInstalled() {
-    // Check standalone mode
-    if (window.matchMedia('(display-mode: standalone)').matches) {
-        return true;
-    }
-    // Check navigator.standalone for iOS
-    if (window.navigator.standalone === true) {
-        return true;
-    }
-    // Check localStorage for manual install flag
-    if (localStorage.getItem('pwa_installed') === 'true') {
-        return true;
-    }
-    return false;
-}
+                    // Recalculate if results are showing
+                    if (!document.getElementById('result').classList.contains('show')) {
+                        return;
+                    }
 
-// Check if user dismissed banner
-function isBannerDismissed() {
-    const dismissed = localStorage.getItem('install_banner_dismissed');
-    if (!dismissed) return false;
-    
-    // Check if dismissed less than 7 days ago
-    const dismissedTime = parseInt(dismissed);
-    const weekInMs = 7 * 24 * 60 * 60 * 1000;
-    return (Date.now() - dismissedTime) < weekInMs;
-}
+                    // Trigger recalculation
+                    const form = document.getElementById('form');
+                    if (form) {
+                        const event = new Event('submit', { cancelable: true });
+                        form.dispatchEvent(event);
+                    }
+                }
+            });
 
-// Show install banner
-function showInstallBanner() {
-    if (isAppInstalled() || isBannerDismissed()) {
-        return;
-    }
-    document.getElementById('banner').style.display = 'flex';
-}
+            // ===========================================
+            // PWA INSTALLATION SYSTEM
+            // Complete support for all platforms
+            // ===========================================
 
-// Capture install prompt (Chrome/Edge only)
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('beforeinstallprompt event fired!');
-    e.preventDefault();
-    deferredPrompt = e;
-    showInstallBanner();
-    console.log('Install banner should be visible');
-});
+            let deferredPrompt = null;
 
-// Show install instructions popup
-// Install button click handler
-document.getElementById('installBtn').onclick = async function() {
-    const platform = detectPlatform();
-    const installBtn = this;
-    
-    // For Chrome/Edge with beforeinstallprompt support
-    if (deferredPrompt) {
-        try {
-            // Disable button
-            installBtn.disabled = true;
-            installBtn.textContent = 'កំពុងដំឡើង...';
-            
-            // Show native install prompt
-            const result = await deferredPrompt.prompt();
-            console.log('Install prompt shown');
-            
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log('User choice:', outcome);
-            
-            if (outcome === 'accepted') {
+            // Detect platform
+            function detectPlatform() {
+                const ua = navigator.userAgent;
+                const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+                const isAndroid = /Android/.test(ua);
+                const isChrome = /Chrome/.test(ua) && !/Edge/.test(ua);
+                const isFirefox = /Firefox/.test(ua);
+                const isSafari = /Safari/.test(ua) && !isChrome;
+
+                return { isIOS, isAndroid, isChrome, isFirefox, isSafari };
+            }
+
+            // Check if already installed
+            function isAppInstalled() {
+                // Check standalone mode
+                if (window.matchMedia('(display-mode: standalone)').matches) {
+                    return true;
+                }
+                // Check navigator.standalone for iOS
+                if (window.navigator.standalone === true) {
+                    return true;
+                }
+                // Check localStorage for manual install flag
+                if (localStorage.getItem('pwa_installed') === 'true') {
+                    return true;
+                }
+                return false;
+            }
+
+            // Check if user dismissed banner
+            function isBannerDismissed() {
+                const dismissed = localStorage.getItem('install_banner_dismissed');
+                if (!dismissed) return false;
+
+                // Check if dismissed less than 7 days ago
+                const dismissedTime = parseInt(dismissed);
+                const weekInMs = 7 * 24 * 60 * 60 * 1000;
+                return (Date.now() - dismissedTime) < weekInMs;
+            }
+
+            // Show install banner
+            function showInstallBanner() {
+                if (isAppInstalled() || isBannerDismissed()) {
+                    return;
+                }
+                document.getElementById('banner').style.display = 'flex';
+            }
+
+            // Capture install prompt (Chrome/Edge only)
+            window.addEventListener('beforeinstallprompt', (e) => {
+                console.log('beforeinstallprompt event fired!');
+                e.preventDefault();
+                deferredPrompt = e;
+                showInstallBanner();
+                console.log('Install banner should be visible');
+            });
+
+            // Show install instructions popup
+            // Install button click handler
+            document.getElementById('installBtn').onclick = async function () {
+                const platform = detectPlatform();
+                const installBtn = this;
+
+                // For Chrome/Edge with beforeinstallprompt support
+                if (deferredPrompt) {
+                    try {
+                        // Disable button
+                        installBtn.disabled = true;
+                        installBtn.textContent = 'កំពុងដំឡើង...';
+
+                        // Show native install prompt
+                        const result = await deferredPrompt.prompt();
+                        console.log('Install prompt shown');
+
+                        const { outcome } = await deferredPrompt.userChoice;
+                        console.log('User choice:', outcome);
+
+                        if (outcome === 'accepted') {
+                            localStorage.setItem('pwa_installed', 'true');
+                            installBtn.textContent = '✓ ដំឡើងរួចរាល់!';
+                            setTimeout(() => {
+                                document.getElementById('banner').style.display = 'none';
+                            }, 1500);
+                        } else {
+                            installBtn.textContent = 'តម្លើង';
+                            installBtn.disabled = false;
+                        }
+
+                        deferredPrompt = null;
+                    } catch (error) {
+                        console.error('Install error:', error);
+                        installBtn.textContent = 'តម្លើង';
+                        installBtn.disabled = false;
+                    }
+                } else {
+                    // Native prompt not available - show inline instructions
+                    console.log('No install prompt available');
+
+                    const bannerText = document.querySelector('.banner-text');
+                    const originalText = bannerText.textContent;
+
+                    // Add animation class
+                    bannerText.style.transition = 'all 0.3s ease';
+                    bannerText.style.transform = 'scale(0.95)';
+
+                    setTimeout(() => {
+                        if (platform.isIOS) {
+                            bannerText.innerHTML = 'iOS: ចុច <strong>Share</strong> → <strong>Add to Home Screen</strong>';
+                        } else if (platform.isAndroid) {
+                            bannerText.innerHTML = 'ចុច <strong>Menu (⋮)</strong> → <strong>Add to Home screen</strong>';
+                        } else {
+                            bannerText.innerHTML = 'ចុច <strong>Menu</strong> → <strong>Install App</strong>';
+                        }
+                        bannerText.style.transform = 'scale(1)';
+                    }, 150);
+
+                    // Revert text after 6 seconds
+                    setTimeout(() => {
+                        bannerText.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            bannerText.textContent = originalText;
+                            bannerText.style.transform = 'scale(1)';
+                        }, 150);
+                    }, 6000);
+                }
+            };
+
+            // Close button - dismiss for 7 days
+            document.getElementById('closeBtn').onclick = function () {
+                document.getElementById('banner').style.display = 'none';
+                localStorage.setItem('install_banner_dismissed', Date.now().toString());
+            };
+
+            // Check on page load
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    document.getElementById('splash').style.display = 'none';
+                    document.getElementById('app').style.display = 'block';
+
+                    // Show banner if not installed
+                    showInstallBanner();
+                }, 800);
+            });
+
+            // Listen for app installed event
+            window.addEventListener('appinstalled', () => {
                 localStorage.setItem('pwa_installed', 'true');
-                installBtn.textContent = '✓ ដំឡើងរួចរាល់!';
-                setTimeout(() => {
-                    document.getElementById('banner').style.display = 'none';
-                }, 1500);
-            } else {
-                installBtn.textContent = 'តម្លើង';
-                installBtn.disabled = false;
+                document.getElementById('banner').style.display = 'none';
+            });
+
+            // ===========================================
+            // CALCULATION HISTORY SYSTEM
+            // ===========================================
+
+            const HISTORY_KEY = 'calculation_history';
+            const ITEMS_PER_PAGE = 20;
+            let currentPage = 1;
+
+            // Load history from localStorage
+            function loadHistory() {
+                try {
+                    const history = localStorage.getItem(HISTORY_KEY);
+                    return history ? JSON.parse(history) : [];
+                } catch (e) {
+                    // Clear corrupted data silently
+                    localStorage.removeItem(HISTORY_KEY);
+                    return [];
+                }
             }
-            
-            deferredPrompt = null;
-        } catch (error) {
-            console.error('Install error:', error);
-            installBtn.textContent = 'តម្លើង';
-            installBtn.disabled = false;
-        }
-    } else {
-        // Native prompt not available - show inline instructions
-        console.log('No install prompt available');
-        
-        const bannerText = document.querySelector('.banner-text');
-        const originalText = bannerText.textContent;
-        
-        // Add animation class
-        bannerText.style.transition = 'all 0.3s ease';
-        bannerText.style.transform = 'scale(0.95)';
-        
-        setTimeout(() => {
-            if (platform.isIOS) {
-                bannerText.innerHTML = 'iOS: ចុច <strong>Share</strong> → <strong>Add to Home Screen</strong>';
-            } else if (platform.isAndroid) {
-                bannerText.innerHTML = 'ចុច <strong>Menu (⋮)</strong> → <strong>Add to Home screen</strong>';
-            } else {
-                bannerText.innerHTML = 'ចុច <strong>Menu</strong> → <strong>Install App</strong>';
+
+            // Save history to localStorage
+            function saveHistory(history) {
+                localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
             }
-            bannerText.style.transform = 'scale(1)';
-        }, 150);
-        
-        // Revert text after 6 seconds
-        setTimeout(() => {
-            bannerText.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                bannerText.textContent = originalText;
-                bannerText.style.transform = 'scale(1)';
-            }, 150);
-        }, 6000);
-    }
-};
 
-// Close button - dismiss for 7 days
-document.getElementById('closeBtn').onclick = function() {
-    document.getElementById('banner').style.display = 'none';
-    localStorage.setItem('install_banner_dismissed', Date.now().toString());
-};
+            // Add calculation to history
+            function addToHistory(data) {
+                const history = loadHistory();
 
-// Check on page load
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.getElementById('splash').style.display = 'none';
-        document.getElementById('app').style.display = 'block';
-        
-        // Show banner if not installed
-        showInstallBanner();
-    }, 800);
-});
+                const entry = {
+                    id: Date.now(),
+                    timestamp: new Date().toISOString(),
+                    height: data.height,
+                    weight: data.weight,
+                    bust: data.bust,
+                    waist: data.waist,
+                    hip: data.hip,
+                    size: data.size,
+                    standard: data.standard
+                };
 
-// Listen for app installed event
-window.addEventListener('appinstalled', () => {
-    localStorage.setItem('pwa_installed', 'true');
-    document.getElementById('banner').style.display = 'none';
-});
+                history.unshift(entry); // Add to beginning
 
-// ===========================================
-// CALCULATION HISTORY SYSTEM
-// ===========================================
+                // Keep max 100 entries
+                if (history.length > 100) {
+                    history.pop();
+                }
 
-const HISTORY_KEY = 'calculation_history';
-const ITEMS_PER_PAGE = 20;
-let currentPage = 1;
+                saveHistory(history);
+                updateHistoryDisplay();
+            }
 
-// Load history from localStorage
-function loadHistory() {
-    const history = localStorage.getItem(HISTORY_KEY);
-    return history ? JSON.parse(history) : [];
-}
+            // Format date/time in Khmer
+            function formatDateTime(isoString) {
+                const date = new Date(isoString);
+                const day = date.getDate().toString().padStart(2, '0');
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const year = date.getFullYear();
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
 
-// Save history to localStorage
-function saveHistory(history) {
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-}
+                return `${day}/${month}/${year} ${hours}:${minutes}`;
+            }
 
-// Add calculation to history
-function addToHistory(data) {
-    const history = loadHistory();
-    
-    const entry = {
-        id: Date.now(),
-        timestamp: new Date().toISOString(),
-        height: data.height,
-        weight: data.weight,
-        bust: data.bust,
-        waist: data.waist,
-        hip: data.hip,
-        size: data.size,
-        standard: data.standard
-    };
-    
-    history.unshift(entry); // Add to beginning
-    
-    // Keep max 100 entries
-    if (history.length > 100) {
-        history.pop();
-    }
-    
-    saveHistory(history);
-    updateHistoryDisplay();
-}
+            // Delete single history item
+            function deleteHistoryItem(id) {
+                if (confirm('តើអ្នកចង់លុបប្រវត្តិនេះមែនទេ?')) {
+                    let history = loadHistory();
+                    history = history.filter(item => item.id !== id);
+                    saveHistory(history);
+                    // Reset to valid page if current page no longer exists
+                    const totalPages = Math.ceil(history.length / ITEMS_PER_PAGE);
+                    if (currentPage > Math.max(1, totalPages)) {
+                        currentPage = Math.max(1, totalPages);
+                    }
+                    updateHistoryDisplay();
+                }
+            }
 
-// Format date/time in Khmer
-function formatDateTime(isoString) {
-    const date = new Date(isoString);
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear();
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    
-    return `${day}/${month}/${year} ${hours}:${minutes}`;
-}
+            // Clear all history
+            function clearAllHistory() {
+                if (confirm('តើអ្នកចង់សម្អាតប្រវត្តិទាំងអស់មែនទេ?')) {
+                    localStorage.removeItem(HISTORY_KEY);
+                    currentPage = 1;
+                    updateHistoryDisplay();
+                }
+            }
 
-// Delete single history item
-function deleteHistoryItem(id) {
-    if (confirm('តើអ្នកចង់លុបប្រវត្តិនេះមែនទេ?')) {
-        let history = loadHistory();
-        history = history.filter(item => item.id !== id);
-        saveHistory(history);
-        updateHistoryDisplay();
-    }
-}
+            // Update history display
+            function updateHistoryDisplay() {
+                const history = loadHistory();
+                const totalItems = history.length;
+                const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
-// Clear all history
-function clearAllHistory() {
-    if (confirm('តើអ្នកចង់សម្អាតប្រវត្តិទាំងអស់មែនទេ?')) {
-        localStorage.removeItem(HISTORY_KEY);
-        currentPage = 1;
-        updateHistoryDisplay();
-    }
-}
+                // Update count
+                document.getElementById('historyCount').textContent = `${totalItems} records`;
 
-// Update history display
-function updateHistoryDisplay() {
-    const history = loadHistory();
-    const totalItems = history.length;
-    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
-    
-    // Update count
-    document.getElementById('historyCount').textContent = `${totalItems} records`;
-    
-    // Calculate pagination
-    const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIdx = startIdx + ITEMS_PER_PAGE;
-    const pageItems = history.slice(startIdx, endIdx);
-    
-    // Render items
-    const historyList = document.getElementById('historyList');
-    
-    if (totalItems === 0) {
-        historyList.innerHTML = '<div class="history-empty">📋 មិនទាន់មានប្រវត្តិ</div>';
-        document.getElementById('historyPagination').innerHTML = '';
-        return;
-    }
-    
-    historyList.innerHTML = pageItems.map(item => `
+                // Calculate pagination
+                const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+                const endIdx = startIdx + ITEMS_PER_PAGE;
+                const pageItems = history.slice(startIdx, endIdx);
+
+                // Render items
+                const historyList = document.getElementById('historyList');
+
+                if (totalItems === 0) {
+                    historyList.innerHTML = '<div class="history-empty">📋 មិនទាន់មានប្រវត្តិ</div>';
+                    document.getElementById('historyPagination').innerHTML = '';
+                    return;
+                }
+
+                historyList.innerHTML = pageItems.map(item => `
         <div class="history-item">
             <div class="history-item-header">
                 <span class="history-date">📅 ${formatDateTime(item.timestamp)}</span>
@@ -1864,21 +1911,21 @@ function updateHistoryDisplay() {
             </div>
         </div>
     `).join('');
-    
-    // Render pagination
-    renderPagination(totalPages);
-}
 
-// Render pagination controls
-function renderPagination(totalPages) {
-    const pagination = document.getElementById('historyPagination');
-    
-    if (totalPages <= 1) {
-        pagination.innerHTML = '';
-        return;
-    }
-    
-    let html = `
+                // Render pagination
+                renderPagination(totalPages);
+            }
+
+            // Render pagination controls
+            function renderPagination(totalPages) {
+                const pagination = document.getElementById('historyPagination');
+
+                if (totalPages <= 1) {
+                    pagination.innerHTML = '';
+                    return;
+                }
+
+                let html = `
         <button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
             ← មុន
         </button>
@@ -1887,866 +1934,860 @@ function renderPagination(totalPages) {
             បន្ទាប់ →
         </button>
     `;
-    
-    pagination.innerHTML = html;
-}
 
-// Change page
-function changePage(page) {
-    const history = loadHistory();
-    const totalPages = Math.ceil(history.length / ITEMS_PER_PAGE);
-    
-    if (page < 1 || page > totalPages) return;
-    
-    currentPage = page;
-    updateHistoryDisplay();
-}
+                pagination.innerHTML = html;
+            }
 
-// Toggle history section
-document.getElementById('historyToggle').addEventListener('click', function() {
-    const content = document.getElementById('historyContent');
-    const icon = this.querySelector('.toggle-icon');
-    
-    if (content.style.display === 'none') {
-        content.style.display = 'block';
-        icon.classList.add('open');
-    } else {
-        content.style.display = 'none';
-        icon.classList.remove('open');
-    }
-});
+            // Change page
+            function changePage(page) {
+                const history = loadHistory();
+                const totalPages = Math.ceil(history.length / ITEMS_PER_PAGE);
 
-// Clear history button
-document.getElementById('clearHistoryBtn').addEventListener('click', clearAllHistory);
+                if (page < 1 || page > totalPages) return;
 
-// Initialize history display
-updateHistoryDisplay();
+                currentPage = page;
+                updateHistoryDisplay();
+            }
 
-// SLIDERS
-const fitLabels = ['តឹង', 'ធម្មតា', 'ធំ'];
+            // Toggle history section
+            document.getElementById('historyToggle').addEventListener('click', function () {
+                const content = document.getElementById('historyContent');
+                const icon = this.querySelector('.toggle-icon');
 
-document.getElementById('fit').oninput = (e) => {
-    document.getElementById('fitVal').textContent = fitLabels[e.target.value];
-};
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                    icon.classList.add('open');
+                } else {
+                    content.style.display = 'none';
+                    icon.classList.remove('open');
+                }
+            });
 
-// ===========================================
-// ===========================================
-// CURVE LADY CUSTOMER DATABASE
-// Real buyer data from Curve Lady customers (ស្រ្តីកម្ពុជា)
-// Currently: 9 verified cases
-// FIXED: Updated size naming (XXL, 3XL, 4XL instead of 0XL, 1XL, 2XL)
-// ===========================================
-const BUYER_DATABASE = [
-    // Real Curve Lady customer reviews
-    {height: 152, weight: 87, size: '4XL', bust: 152, waist: null, hip: null},
-    {height: 155, weight: 65, size: '4XL', bust: 100, waist: null, hip: null},
-    {height: 157, weight: 72, size: '6XL', bust: 118, waist: 96, hip: 125},
-    {height: 165, weight: 75, size: '3XL', bust: 102, waist: 96, hip: 115},
-    {height: 183, weight: 80, size: '3XL', bust: 127, waist: 81, hip: 118},
-    {height: 172, weight: 110, size: '4XL', bust: 117, waist: 124, hip: 135},
-    {height: 180, weight: 95, size: '4XL', bust: 122, waist: 107, hip: 137},
-    {height: 158, weight: 94, size: '4XL', bust: 103, waist: 91, hip: 113},
-    {height: 160, weight: 95, size: '5XL', bust: 156, waist: 125, hip: 130}
-];
+            // Clear history button
+            document.getElementById('clearHistoryBtn').addEventListener('click', clearAllHistory);
 
-// ===========================================
-// SIZE CHART - CURVE LADY SYSTEM
-// Optimized for Cambodian women (ស្រ្តីកម្ពុជា)
-// Focus: Curve-friendly sizing (រាងសាច់ច្រើន)
-// FIXED: Added XXS for petite/underweight, proper naming, no overlaps, complete range
-// ===========================================
-const SIZE_CHART = {
-    'XXS': {bust: [72, 76], waist: [54, 58], hip: [80, 84], height: [145, 158], weight: [35, 37.9]},
-    'XS': {bust: [76, 81], waist: [58, 63], hip: [84, 89], height: [150, 160], weight: [38, 44.9]},
-    'S': {bust: [81, 86], waist: [63, 68], hip: [89, 94], height: [155, 165], weight: [45, 51.9]},
-    'M': {bust: [86, 91], waist: [68, 73], hip: [94, 99], height: [160, 168], weight: [52, 57.9]},
-    'L': {bust: [91, 96], waist: [73, 78], hip: [99, 104], height: [160, 170], weight: [58, 64.9]},
-    'XL': {bust: [96, 101], waist: [78, 83], hip: [104, 109], height: [160, 170], weight: [65, 71.9]},
-    'XXL': {bust: [101, 107], waist: [83, 89], hip: [109, 115], height: [160, 170], weight: [72, 79.9]},
-    '3XL': {bust: [107, 113], waist: [89, 95], hip: [115, 121], height: [160, 172], weight: [80, 87.9]},
-    '4XL': {bust: [113, 119], waist: [95, 101], hip: [121, 127], height: [160, 172], weight: [88, 95.9]},
-    '5XL': {bust: [119, 125], waist: [101, 107], hip: [127, 133], height: [160, 175], weight: [96, 104.9]},
-    '6XL': {bust: [125, 131], waist: [107, 113], hip: [133, 139], height: [160, 175], weight: [105, 114.9]},
-    '7XL': {bust: [131, 137], waist: [113, 119], hip: [139, 145], height: [160, 175], weight: [115, 124.9]},
-    '8XL': {bust: [137, 143], waist: [119, 125], hip: [145, 151], height: [160, 178], weight: [125, 134.9]},
-    '9XL': {bust: [143, 149], waist: [125, 131], hip: [151, 157], height: [160, 178], weight: [135, 144.9]},
-    '10XL': {bust: [149, 155], waist: [131, 137], hip: [157, 163], height: [160, 180], weight: [145, 154.9]},
-    '11XL': {bust: [155, 161], waist: [137, 143], hip: [163, 169], height: [160, 180], weight: [155, 164.9]},
-    '12XL': {bust: [161, 170], waist: [143, 152], hip: [169, 178], height: [160, 180], weight: [165, 180]}
-};
+            // Initialize history display
+            updateHistoryDisplay();
 
-const SIZE_ORDER = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL', '7XL', '8XL', '9XL', '10XL', '11XL', '12XL'];
+            // SLIDERS
+            const fitLabels = ['តឹង', 'ធម្មតា', 'ធំ'];
 
-const SIZE_CONVERSION = {
-    'KH': {
-        'XXS': 'XXS', 'XS': 'XS', 'S': 'S', 'M': 'M', 'L': 'L', 'XL': 'XL', 
-        'XXL': 'XXL', '3XL': '3XL', '4XL': '4XL', '5XL': '5XL', 
-        '6XL': '6XL', '7XL': '7XL', '8XL': '8XL', '9XL': '9XL', 
-        '10XL': '10XL', '11XL': '11XL', '12XL': '12XL'
-    },
-    'US': {
-        'XXS': '00', 'XS': '0-2', 'S': '4-6', 'M': '8-10', 'L': '12-14', 'XL': '16', 
-        'XXL': '18-20', '3XL': '22', '4XL': '24', '5XL': '26', 
-        '6XL': '28', '7XL': '30-32', '8XL': '34', '9XL': '36', 
-        '10XL': '38', '11XL': '40', '12XL': '42+'
-    },
-    'EU': {
-        'XXS': '30', 'XS': '32-34', 'S': '36-38', 'M': '40-42', 'L': '44-46', 'XL': '48', 
-        'XXL': '50-52', '3XL': '54', '4XL': '56', '5XL': '58', 
-        '6XL': '60', '7XL': '62-64', '8XL': '66', '9XL': '68', 
-        '10XL': '70', '11XL': '72', '12XL': '74+'
-    },
-    'UK': {
-        'XXS': '2', 'XS': '4-6', 'S': '8-10', 'M': '12-14', 'L': '16-18', 'XL': '20', 
-        'XXL': '22-24', '3XL': '26', '4XL': '28', '5XL': '30', 
-        '6XL': '32', '7XL': '34-36', '8XL': '38', '9XL': '40', 
-        '10XL': '42', '11XL': '44', '12XL': '46+'
-    }
-};
+            document.getElementById('fit').oninput = (e) => {
+                document.getElementById('fitVal').textContent = fitLabels[e.target.value];
+            };
 
-// ===========================================
-// AI NATURAL LANGUAGE PROCESSOR - ENHANCED
-// ===========================================
+            // ===========================================
+            // ===========================================
+            // CURVE LADY CUSTOMER DATABASE
+            // Real buyer data from Curve Lady customers (ស្រ្តីកម្ពុជា)
+            // Currently: 9 verified cases
+            // FIXED: Updated size naming (XXL, 3XL, 4XL instead of 0XL, 1XL, 2XL)
+            // ===========================================
+            const BUYER_DATABASE = [
+                // Real Curve Lady customer reviews
+                { height: 152, weight: 87, size: '4XL', bust: 152, waist: null, hip: null },
+                { height: 155, weight: 65, size: '4XL', bust: 100, waist: null, hip: null },
+                { height: 157, weight: 72, size: '6XL', bust: 118, waist: 96, hip: 125 },
+                { height: 165, weight: 75, size: '3XL', bust: 102, waist: 96, hip: 115 },
+                { height: 183, weight: 80, size: '3XL', bust: 127, waist: 81, hip: 118 },
+                { height: 172, weight: 110, size: '4XL', bust: 117, waist: 124, hip: 135 },
+                { height: 180, weight: 95, size: '4XL', bust: 122, waist: 107, hip: 137 },
+                { height: 158, weight: 94, size: '4XL', bust: 103, waist: 91, hip: 113 },
+                { height: 160, weight: 95, size: '5XL', bust: 156, waist: 125, hip: 130 }
+            ];
 
-// ═════════════════════════════════════════════════════════════
-// COMPREHENSIVE KEYWORD DATABASE
-// ពាក្យគន្លឹះពេញលេញសម្រាប់ការវិភាគរាងកាយ
-// ═════════════════════════════════════════════════════════════
-const BODY_KEYWORDS = {
-    // មានផ្ទៃពោះ (Pregnancy)
-    pregnant: {
-        keywords: [
-            // ខ្មែរ - លក្ខណៈផ្សេងៗ
-            'មានផ្ទៃពោះ', 'មានពោះ', 'មានកូន', 'កំពុងមានកូន', 'មានផ្ទៃ', 
-            'ពោះធំ', 'មេមាន់', 'មានផ្ទៃពោះធំ', 'គភ៌', 'ពោះធំៗ', 
-            'មានកូនក្នុងពោះ', 'មានទារកក្នុងពោះ',
-            // អង់គ្លេស
-            'pregnant', 'pregnancy', 'expecting', 'expecting baby', 
-            'with child', 'prenatal', 'maternity', 'gravid'
-        ],
-        modifiers: {
-            earlyStage: ['១-៣ខែ', '1-3 months', 'ខែដំបូង', 'early', 'first trimester'],
-            midStage: ['៤-៦ខែ', '4-6 months', 'ពាក់កណ្តាល', 'middle', 'second trimester'],
-            lateStage: ['៧-៩ខែ', '៨ខែ', '៩ខែ', '7-9 months', '8 months', '9 months', 'ខែចុង', 'late', 'third trimester'],
-            postpartum: ['បន្ទាប់ពីសម្រាល', 'សម្រាលរួច', 'postpartum', 'after birth', 'post delivery']
-        }
-    },
-    
-    // រូបរាង (Body Shape)
-    bodyShape: {
-        hourglass: [
-            'រាងកោង', 'កោងស្អាត', 'មានរាង', 'រាងកោងស្អាត', 
-            'ទ្រូងធំចង្កេះតូច', 'ចង្កេះតូចត្រគាកធំ',
-            'hourglass', 'curvy', 'curves', 'shapely', 'curved'
-        ],
-        pear: [
-            'ខាងក្រោមធំ', 'ត្រគាកធំទ្រូងតូច', 'រាងផ្លែពេ', 
-            'pear', 'bottom heavy', 'lower body'
-        ],
-        apple: [
-            'ពោះធំ', 'ចង្កេះធំ', 'ខាងលើធំ',
-            'apple', 'top heavy', 'round middle'
-        ],
-        rectangle: [
-            'រាងត្រង់', 'គ្មានកោង', 'ត្រង់ៗ',
-            'rectangle', 'straight', 'athletic build', 'boyish'
-        ],
-        inverted: [
-            'ស្មាធំត្រគាកតូច', 'ខាងលើធំខាងក្រោមតូច',
-            'inverted triangle', 'broad shoulders'
-        ]
-    },
-    
-    // រាងកាយទូទៅ (Overall Body Type)
-    overall: {
-        plusSize: [
-            'ធាត់', 'ធំ', 'ធ្ងន់', 'លើសទម្ងន់', 'រាងធំ', 'ធំខ្លាំង',
-            'សាច់ច្រើន', 'ធាត់ៗ', 'ធំធ្ងន់',
-            'plus size', 'overweight', 'large', 'big', 'chubby', 
-            'heavy', 'full figured', 'curvy plus'
-        ],
-        slim: [
-            'ស្គម', 'ស្លឹម', 'តូច', 'ស្តើង', 'ស្រាល', 'ស្គមស្គាំ',
-            'ស្គមតូច', 'ខ្សោយ', 'ស្គមស្រាល',
-            'slim', 'skinny', 'thin', 'slender', 'petite', 
-            'lean', 'underweight', 'small frame'
-        ],
-        average: [
-            'ធម្មតា', 'មធ្យម', 'ទម្ងន់ធម្មតា', 'សមរម្យ',
-            'average', 'normal', 'medium', 'moderate'
-        ]
-    },
-    
-    // សាច់ដុំ & កីឡា (Muscular & Athletic)
-    muscular: {
-        keywords: [
-            'សាច់ដុំ', 'ខ្លាំង', 'ហ្វឹកហាត់', 'កីឡា', 'តឹង', 'រឹង',
-            'ហ្វឹកហាត់ជាប្រចាំ', 'លេងកីឡា', 'សាច់ដុំរឹង',
-            'muscular', 'athletic', 'gym', 'fit', 'toned', 
-            'strong', 'workout', 'exercise', 'bodybuilder', 'sporty'
-        ]
-    },
-    
-    // ទ្រូង (Bust)
-    bust: {
-        large: [
-            'ទ្រូងធំ', 'ទ្រូងធំខ្លាំង', 'ទ្រូងធំរឹង', 'ដើមទ្រូងធំ',
-            'large bust', 'big bust', 'big chest', 'full bust'
-        ],
-        medium: [
-            'ទ្រូងធំបន្តិច', 'ទ្រូងធំតិច', 'ទ្រូងធម្មតា',
-            'medium bust', 'average bust'
-        ],
-        small: [
-            'ទ្រូងតូច', 'ទ្រូងតូចតាច', 'ដើមទ្រូងតូច',
-            'small bust', 'small chest', 'flat chest'
-        ]
-    },
-    
-    // ចង្កេះ (Waist)
-    waist: {
-        large: [
-            'ចង្កេះធំ', 'ពោះធំ', 'ក្បាលពោះធំ', 'ចង្កេះធំខ្លាំង',
-            'large waist', 'big waist', 'thick waist', 'wide waist'
-        ],
-        medium: [
-            'ចង្កេះធំបន្តិច', 'ចង្កេះធម្មតា',
-            'medium waist', 'average waist'
-        ],
-        small: [
-            'ចង្កេះតូច', 'ចង្កេះស្តើង', 'ចង្កេះតូចស្រួល',
-            'small waist', 'tiny waist', 'slim waist', 'narrow waist'
-        ]
-    },
-    
-    // ត្រគាក (Hip)
-    hip: {
-        large: [
-            'ត្រគាកធំ', 'ត្រគាករៀងធំ', 'ត្រគាកធំរឹង', 'ត្រគាកធំខ្លាំង',
-            'large hip', 'big hip', 'wide hip', 'full hip'
-        ],
-        medium: [
-            'ត្រគាកធំបន្តិច', 'ត្រគាករៀងធំបន្តិច', 'ត្រគាកធម្មតា',
-            'medium hip', 'average hip'
-        ],
-        small: [
-            'ត្រគាកតូច', 'ត្រគាកតូចតាច',
-            'small hip', 'narrow hip', 'slim hip'
-        ]
-    },
-    
-    // ស្មា (Shoulders)
-    shoulders: {
-        broad: [
-            'ស្មាធំ', 'ស្មាទទឹង', 'ស្មាធំទទឹង', 'ស្មាធំខ្លាំង',
-            'broad shoulders', 'wide shoulders', 'big shoulders'
-        ],
-        narrow: [
-            'ស្មាតូច', 'ស្មាតូចស្តើង',
-            'narrow shoulders', 'small shoulders'
-        ]
-    },
-    
-    // ជើង (Legs)
-    legs: {
-        thick: [
-            'ជើងធំ', 'ជើងធាត់', 'ជើងធំរឹង',
-            'thick legs', 'big legs', 'muscular legs'
-        ],
-        slim: [
-            'ជើងស្គម', 'ជើងស្តើង', 'ជើងតូច',
-            'slim legs', 'thin legs', 'skinny legs'
-        ],
-        long: [
-            'ជើងវែង', 'ជើងវែងៗ',
-            'long legs', 'tall legs'
-        ],
-        short: [
-            'ជើងខ្លី', 'ជើងខ្លីៗ',
-            'short legs'
-        ]
-    },
-    
-    // ដៃ (Arms)
-    arms: {
-        thick: [
-            'ដៃធំ', 'ដៃធាត់', 'ដៃធំរឹង',
-            'thick arms', 'big arms', 'fat arms'
-        ],
-        slim: [
-            'ដៃស្គម', 'ដៃស្តើង', 'ដៃតូច',
-            'slim arms', 'thin arms', 'skinny arms'
-        ]
-    }
-};
+            // ===========================================
+            // SIZE CHART - CURVE LADY SYSTEM
+            // Optimized for Cambodian women (ស្រ្តីកម្ពុជា)
+            // Focus: Curve-friendly sizing (រាងសាច់ច្រើន)
+            // FIXED: Added XXS for petite/underweight, proper naming, no overlaps, complete range
+            // ===========================================
+            const SIZE_CHART = {
+                'XXS': { bust: [72, 76], waist: [54, 58], hip: [80, 84], height: [145, 158], weight: [35, 37.9] },
+                'XS': { bust: [76, 81], waist: [58, 63], hip: [84, 89], height: [150, 160], weight: [38, 44.9] },
+                'S': { bust: [81, 86], waist: [63, 68], hip: [89, 94], height: [155, 165], weight: [45, 51.9] },
+                'M': { bust: [86, 91], waist: [68, 73], hip: [94, 99], height: [160, 168], weight: [52, 57.9] },
+                'L': { bust: [91, 96], waist: [73, 78], hip: [99, 104], height: [160, 170], weight: [58, 64.9] },
+                'XL': { bust: [96, 101], waist: [78, 83], hip: [104, 109], height: [160, 170], weight: [65, 71.9] },
+                'XXL': { bust: [101, 107], waist: [83, 89], hip: [109, 115], height: [160, 170], weight: [72, 79.9] },
+                '3XL': { bust: [107, 113], waist: [89, 95], hip: [115, 121], height: [160, 172], weight: [80, 87.9] },
+                '4XL': { bust: [113, 119], waist: [95, 101], hip: [121, 127], height: [160, 172], weight: [88, 95.9] },
+                '5XL': { bust: [119, 125], waist: [101, 107], hip: [127, 133], height: [160, 175], weight: [96, 104.9] },
+                '6XL': { bust: [125, 131], waist: [107, 113], hip: [133, 139], height: [160, 175], weight: [105, 114.9] },
+                '7XL': { bust: [131, 137], waist: [113, 119], hip: [139, 145], height: [160, 175], weight: [115, 124.9] },
+                '8XL': { bust: [137, 143], waist: [119, 125], hip: [145, 151], height: [160, 178], weight: [125, 134.9] },
+                '9XL': { bust: [143, 149], waist: [125, 131], hip: [151, 157], height: [160, 178], weight: [135, 144.9] },
+                '10XL': { bust: [149, 155], waist: [131, 137], hip: [157, 163], height: [160, 180], weight: [145, 154.9] },
+                '11XL': { bust: [155, 161], waist: [137, 143], hip: [163, 169], height: [160, 180], weight: [155, 164.9] },
+                '12XL': { bust: [161, 170], waist: [143, 152], hip: [169, 178], height: [160, 180], weight: [165, 180] }
+            };
 
-// ═════════════════════════════════════════════════════════════
-// HELPER FUNCTIONS
-// ═════════════════════════════════════════════════════════════
+            const SIZE_ORDER = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL', '7XL', '8XL', '9XL', '10XL', '11XL', '12XL'];
 
-/**
- * ពិនិត្យថាតើអត្ថបទមានពាក្យគន្លឹះណាមួយឬទេ
- * Check if text contains any of the keywords
- */
-function checkKeywords(text, keywordArray) {
-    if (!text || !keywordArray) return false;
-    const lowerText = text.toLowerCase();
-    return keywordArray.some(keyword => lowerText.includes(keyword.toLowerCase()));
-}
+            const SIZE_CONVERSION = {
+                'KH': {
+                    'XXS': 'XXS', 'XS': 'XS', 'S': 'S', 'M': 'M', 'L': 'L', 'XL': 'XL',
+                    'XXL': 'XXL', '3XL': '3XL', '4XL': '4XL', '5XL': '5XL',
+                    '6XL': '6XL', '7XL': '7XL', '8XL': '8XL', '9XL': '9XL',
+                    '10XL': '10XL', '11XL': '11XL', '12XL': '12XL'
+                },
+                'US': {
+                    'XXS': '00', 'XS': '0-2', 'S': '4-6', 'M': '8-10', 'L': '12-14', 'XL': '16',
+                    'XXL': '18-20', '3XL': '22', '4XL': '24', '5XL': '26',
+                    '6XL': '28', '7XL': '30-32', '8XL': '34', '9XL': '36',
+                    '10XL': '38', '11XL': '40', '12XL': '42+'
+                },
+                'EU': {
+                    'XXS': '30', 'XS': '32-34', 'S': '36-38', 'M': '40-42', 'L': '44-46', 'XL': '48',
+                    'XXL': '50-52', '3XL': '54', '4XL': '56', '5XL': '58',
+                    '6XL': '60', '7XL': '62-64', '8XL': '66', '9XL': '68',
+                    '10XL': '70', '11XL': '72', '12XL': '74+'
+                },
+                'UK': {
+                    'XXS': '2', 'XS': '4-6', 'S': '8-10', 'M': '12-14', 'L': '16-18', 'XL': '20',
+                    'XXL': '22-24', '3XL': '26', '4XL': '28', '5XL': '30',
+                    '6XL': '32', '7XL': '34-36', '8XL': '38', '9XL': '40',
+                    '10XL': '42', '11XL': '44', '12XL': '46+'
+                }
+            };
 
-/**
- * ទាញយកទំហំពីការពិពណ៌នា
- * Extract measurements from text description
- */
-function extractMeasurementsFromText(text) {
-    if (!text) return {};
-    
-    try {
-        const result = {};
-        const lowerText = text.toLowerCase();
-        
-        // ទម្រង់សម្រាប់ខ្មែរ និង អង់គ្លេស
-        // Patterns for both Khmer and English
-        const patterns = {
-            // ទ្រូង (Bust)
-            bust: [
-                /(?:ទ្រូង|ដើមទ្រូង|chest|bust)[^\d]*([០-៩\d]+(?:\.[០-៩\d]+)?)/i,
-                /(?:bust|chest)\s*[:=]?\s*([០-៩\d]+(?:\.[០-៩\d]+)?)/i
-            ],
-            // ចង្កេះ (Waist)
-            waist: [
-                /(?:ចង្កេះ|ក្បាលពោះ|waist)[^\d]*([០-៩\d]+(?:\.[០-៩\d]+)?)/i,
-                /(?:waist)\s*[:=]?\s*([០-៩\d]+(?:\.[០-៩\d]+)?)/i
-            ],
-            // ត្រគាក (Hip)
-            hip: [
-                /(?:ត្រគាក|hip|hips)[^\d]*([០-៩\d]+(?:\.[០-៩\d]+)?)/i,
-                /(?:hip|hips)\s*[:=]?\s*([០-៩\d]+(?:\.[០-៩\d]+)?)/i
-            ],
-            // ស្មា (Shoulder)
-            shoulder: [
-                /(?:ស្មា|shoulder|shoulders)[^\d]*([០-៩\d]+(?:\.[០-៩\d]+)?)/i
-            ]
-        };
-        
-        // រកឃើញទំហំពីទម្រង់
-        for (const [measurement, patternList] of Object.entries(patterns)) {
-            for (const pattern of patternList) {
-                const match = lowerText.match(pattern);
-                if (match) {
-                    let num = khmerToNum(match[1]);
-                    
-                    // ពិនិត្យថាតើជា inches ឬអត់
-                    // Check if it's in inches
-                    const afterMatch = lowerText.substring(match.index + match[0].length, match.index + match[0].length + 10);
-                    const isInches = /inch|"|in\b/i.test(afterMatch);
-                    
-                    if (isInches && num > 20 && num < 60) {
-                        // បម្លែង inches ទៅ cm
-                        num = num * 2.54;
+            // ===========================================
+            // AI NATURAL LANGUAGE PROCESSOR - ENHANCED
+            // ===========================================
+
+            // ═════════════════════════════════════════════════════════════
+            // COMPREHENSIVE KEYWORD DATABASE
+            // ពាក្យគន្លឹះពេញលេញសម្រាប់ការវិភាគរាងកាយ
+            // ═════════════════════════════════════════════════════════════
+            const BODY_KEYWORDS = {
+                // មានផ្ទៃពោះ (Pregnancy)
+                pregnant: {
+                    keywords: [
+                        // ខ្មែរ - លក្ខណៈផ្សេងៗ
+                        'មានផ្ទៃពោះ', 'មានពោះ', 'មានកូន', 'កំពុងមានកូន', 'មានផ្ទៃ',
+                        'ពោះធំ', 'មេមាន់', 'មានផ្ទៃពោះធំ', 'គភ៌', 'ពោះធំៗ',
+                        'មានកូនក្នុងពោះ', 'មានទារកក្នុងពោះ',
+                        // អង់គ្លេស
+                        'pregnant', 'pregnancy', 'expecting', 'expecting baby',
+                        'with child', 'prenatal', 'maternity', 'gravid'
+                    ],
+                    modifiers: {
+                        earlyStage: ['១-៣ខែ', '1-3 months', 'ខែដំបូង', 'early', 'first trimester'],
+                        midStage: ['៤-៦ខែ', '4-6 months', 'ពាក់កណ្តាល', 'middle', 'second trimester'],
+                        lateStage: ['៧-៩ខែ', '៨ខែ', '៩ខែ', '7-9 months', '8 months', '9 months', 'ខែចុង', 'late', 'third trimester'],
+                        postpartum: ['បន្ទាប់ពីសម្រាល', 'សម្រាលរួច', 'postpartum', 'after birth', 'post delivery']
                     }
-                    
-                    // ត្រឹមត្រូវតែ cm ប៉ុណ្ណោះ
-                    if (num && num > 30 && num < 200) {
-                        result[measurement] = Math.round(num);
-                        break; // រកឃើញហើយ ឈប់
+                },
+
+                // រូបរាង (Body Shape)
+                bodyShape: {
+                    hourglass: [
+                        'រាងកោង', 'កោងស្អាត', 'មានរាង', 'រាងកោងស្អាត',
+                        'ទ្រូងធំចង្កេះតូច', 'ចង្កេះតូចត្រគាកធំ',
+                        'hourglass', 'curvy', 'curves', 'shapely', 'curved'
+                    ],
+                    pear: [
+                        'ខាងក្រោមធំ', 'ត្រគាកធំទ្រូងតូច', 'រាងផ្លែពេ',
+                        'pear', 'bottom heavy', 'lower body'
+                    ],
+                    apple: [
+                        'ពោះធំ', 'ចង្កេះធំ', 'ខាងលើធំ',
+                        'apple', 'top heavy', 'round middle'
+                    ],
+                    rectangle: [
+                        'រាងត្រង់', 'គ្មានកោង', 'ត្រង់ៗ',
+                        'rectangle', 'straight', 'athletic build', 'boyish'
+                    ],
+                    inverted: [
+                        'ស្មាធំត្រគាកតូច', 'ខាងលើធំខាងក្រោមតូច',
+                        'inverted triangle', 'broad shoulders'
+                    ]
+                },
+
+                // រាងកាយទូទៅ (Overall Body Type)
+                overall: {
+                    plusSize: [
+                        'ធាត់', 'ធំ', 'ធ្ងន់', 'លើសទម្ងន់', 'រាងធំ', 'ធំខ្លាំង',
+                        'សាច់ច្រើន', 'ធាត់ៗ', 'ធំធ្ងន់',
+                        'plus size', 'overweight', 'large', 'big', 'chubby',
+                        'heavy', 'full figured', 'curvy plus'
+                    ],
+                    slim: [
+                        'ស្គម', 'ស្លឹម', 'តូច', 'ស្តើង', 'ស្រាល', 'ស្គមស្គាំ',
+                        'ស្គមតូច', 'ខ្សោយ', 'ស្គមស្រាល',
+                        'slim', 'skinny', 'thin', 'slender', 'petite',
+                        'lean', 'underweight', 'small frame'
+                    ],
+                    average: [
+                        'ធម្មតា', 'មធ្យម', 'ទម្ងន់ធម្មតា', 'សមរម្យ',
+                        'average', 'normal', 'medium', 'moderate'
+                    ]
+                },
+
+                // សាច់ដុំ & កីឡា (Muscular & Athletic)
+                muscular: {
+                    keywords: [
+                        'សាច់ដុំ', 'ខ្លាំង', 'ហ្វឹកហាត់', 'កីឡា', 'តឹង', 'រឹង',
+                        'ហ្វឹកហាត់ជាប្រចាំ', 'លេងកីឡា', 'សាច់ដុំរឹង',
+                        'muscular', 'athletic', 'gym', 'fit', 'toned',
+                        'strong', 'workout', 'exercise', 'bodybuilder', 'sporty'
+                    ]
+                },
+
+                // ទ្រូង (Bust)
+                bust: {
+                    large: [
+                        'ទ្រូងធំ', 'ទ្រូងធំខ្លាំង', 'ទ្រូងធំរឹង', 'ដើមទ្រូងធំ',
+                        'large bust', 'big bust', 'big chest', 'full bust'
+                    ],
+                    medium: [
+                        'ទ្រូងធំបន្តិច', 'ទ្រូងធំតិច', 'ទ្រូងធម្មតា',
+                        'medium bust', 'average bust'
+                    ],
+                    small: [
+                        'ទ្រូងតូច', 'ទ្រូងតូចតាច', 'ដើមទ្រូងតូច',
+                        'small bust', 'small chest', 'flat chest'
+                    ]
+                },
+
+                // ចង្កេះ (Waist)
+                waist: {
+                    large: [
+                        'ចង្កេះធំ', 'ពោះធំ', 'ក្បាលពោះធំ', 'ចង្កេះធំខ្លាំង',
+                        'large waist', 'big waist', 'thick waist', 'wide waist'
+                    ],
+                    medium: [
+                        'ចង្កេះធំបន្តិច', 'ចង្កេះធម្មតា',
+                        'medium waist', 'average waist'
+                    ],
+                    small: [
+                        'ចង្កេះតូច', 'ចង្កេះស្តើង', 'ចង្កេះតូចស្រួល',
+                        'small waist', 'tiny waist', 'slim waist', 'narrow waist'
+                    ]
+                },
+
+                // ត្រគាក (Hip)
+                hip: {
+                    large: [
+                        'ត្រគាកធំ', 'ត្រគាករៀងធំ', 'ត្រគាកធំរឹង', 'ត្រគាកធំខ្លាំង',
+                        'large hip', 'big hip', 'wide hip', 'full hip'
+                    ],
+                    medium: [
+                        'ត្រគាកធំបន្តិច', 'ត្រគាករៀងធំបន្តិច', 'ត្រគាកធម្មតា',
+                        'medium hip', 'average hip'
+                    ],
+                    small: [
+                        'ត្រគាកតូច', 'ត្រគាកតូចតាច',
+                        'small hip', 'narrow hip', 'slim hip'
+                    ]
+                },
+
+                // ស្មា (Shoulders)
+                shoulders: {
+                    broad: [
+                        'ស្មាធំ', 'ស្មាទទឹង', 'ស្មាធំទទឹង', 'ស្មាធំខ្លាំង',
+                        'broad shoulders', 'wide shoulders', 'big shoulders'
+                    ],
+                    narrow: [
+                        'ស្មាតូច', 'ស្មាតូចស្តើង',
+                        'narrow shoulders', 'small shoulders'
+                    ]
+                },
+
+                // ជើង (Legs)
+                legs: {
+                    thick: [
+                        'ជើងធំ', 'ជើងធាត់', 'ជើងធំរឹង',
+                        'thick legs', 'big legs', 'muscular legs'
+                    ],
+                    slim: [
+                        'ជើងស្គម', 'ជើងស្តើង', 'ជើងតូច',
+                        'slim legs', 'thin legs', 'skinny legs'
+                    ],
+                    long: [
+                        'ជើងវែង', 'ជើងវែងៗ',
+                        'long legs', 'tall legs'
+                    ],
+                    short: [
+                        'ជើងខ្លី', 'ជើងខ្លីៗ',
+                        'short legs'
+                    ]
+                },
+
+                // ដៃ (Arms)
+                arms: {
+                    thick: [
+                        'ដៃធំ', 'ដៃធាត់', 'ដៃធំរឹង',
+                        'thick arms', 'big arms', 'fat arms'
+                    ],
+                    slim: [
+                        'ដៃស្គម', 'ដៃស្តើង', 'ដៃតូច',
+                        'slim arms', 'thin arms', 'skinny arms'
+                    ]
+                }
+            };
+
+            // ═════════════════════════════════════════════════════════════
+            // HELPER FUNCTIONS
+            // ═════════════════════════════════════════════════════════════
+
+            /**
+             * ពិនិត្យថាតើអត្ថបទមានពាក្យគន្លឹះណាមួយឬទេ
+             * Check if text contains any of the keywords
+             */
+            function checkKeywords(text, keywordArray) {
+                if (!text || !keywordArray) return false;
+                const lowerText = text.toLowerCase();
+                return keywordArray.some(keyword => lowerText.includes(keyword.toLowerCase()));
+            }
+
+            /**
+             * ទាញយកទំហំពីការពិពណ៌នា
+             * Extract measurements from text description
+             */
+            function extractMeasurementsFromText(text) {
+                if (!text) return {};
+
+                try {
+                    const result = {};
+                    const lowerText = text.toLowerCase();
+
+                    // ទម្រង់សម្រាប់ខ្មែរ និង អង់គ្លេស
+                    // Patterns for both Khmer and English
+                    // Valid measurement ranges per body part (prevents grabbing wrong numbers)
+                    const measurementRanges = {
+                        bust: [60, 150], waist: [50, 140], hip: [70, 160], shoulder: [30, 60]
+                    };
+
+                    const patterns = {
+                        // ទ្រូង (Bust) — max 15 chars between keyword and number
+                        bust: [
+                            /(?:ទ្រូង|ដើមទ្រូង|chest|bust)[^\d]{0,15}([០-៩\d]+(?:\.[០-៩\d]+)?)/i,
+                            /(?:bust|chest)\s*[:=]?\s*([០-៩\d]+(?:\.[០-៩\d]+)?)/i
+                        ],
+                        // ចង្កេះ (Waist)
+                        waist: [
+                            /(?:ចង្កេះ|ក្បាលពោះ|waist)[^\d]{0,15}([០-៩\d]+(?:\.[០-៩\d]+)?)/i,
+                            /(?:waist)\s*[:=]?\s*([០-៩\d]+(?:\.[០-៩\d]+)?)/i
+                        ],
+                        // ត្រគាក (Hip)
+                        hip: [
+                            /(?:ត្រគាក|hip|hips)[^\d]{0,15}([០-៩\d]+(?:\.[០-៩\d]+)?)/i,
+                            /(?:hip|hips)\s*[:=]?\s*([០-៩\d]+(?:\.[០-៩\d]+)?)/i
+                        ],
+                        // ស្មា (Shoulder)
+                        shoulder: [
+                            /(?:ស្មា|shoulder|shoulders)[^\d]{0,15}([០-៩\d]+(?:\.[០-៩\d]+)?)/i
+                        ]
+                    };
+
+                    // រកឃើញទំហំពីទម្រង់
+                    for (const [measurement, patternList] of Object.entries(patterns)) {
+                        for (const pattern of patternList) {
+                            const match = lowerText.match(pattern);
+                            if (match) {
+                                let num = khmerToNum(match[1]);
+
+                                // ពិនិត្យថាតើជា inches ឬអត់
+                                // Check if it's in inches
+                                const afterMatch = lowerText.substring(match.index + match[0].length, match.index + match[0].length + 10);
+                                const isInches = /inch|"|in\b/i.test(afterMatch);
+
+                                if (isInches && num > 20 && num < 60) {
+                                    // បម្លែង inches ទៅ cm
+                                    num = num * 2.54;
+                                }
+
+                                // Validate against per-measurement range
+                                const [minVal, maxVal] = measurementRanges[measurement] || [30, 200];
+                                if (num && num >= minVal && num <= maxVal) {
+                                    result[measurement] = Math.round(num);
+                                    break; // រកឃើញហើយ ឈប់
+                                }
+                            }
+                        }
                     }
+
+                    return result;
+                } catch (error) {
+                    console.error('Error extracting measurements:', error);
+                    return {}; // Fail safely
                 }
             }
-        }
-        
-        return result;
-    } catch (error) {
-        console.error('Error extracting measurements:', error);
-        return {}; // Fail safely
-    }
-}
 
-/**
- * វិភាគការពិពណ៌នារាងកាយ - ENHANCED VERSION
- * Analyze body description with comprehensive keywords
- */
-function analyzeBodyDescription(text) {
-    // FIXED: Initialize Default Values First to prevent "undefined" errors
-    const analysis = {
-        bustModifier: 0,
-        waistModifier: 0,
-        hipModifier: 0,
-        overallSize: 0,
-        detectedFeatures: [] // បញ្ជីលក្ខណៈដែលរកឃើញ
-    };
+            /**
+             * វិភាគការពិពណ៌នារាងកាយ - ENHANCED VERSION
+             * Analyze body description with comprehensive keywords
+             */
+            function analyzeBodyDescription(text) {
+                // FIXED: Initialize Default Values First to prevent "undefined" errors
+                const analysis = {
+                    bustModifier: 0,
+                    waistModifier: 0,
+                    hipModifier: 0,
+                    overallSize: 0,
+                    detectedFeatures: [] // បញ្ជីលក្ខណៈដែលរកឃើញ
+                };
 
-    // If no text, return the default values (all zeros)
-    if (!text) return analysis;
-    
-    const lowerText = text.toLowerCase();
-    
-    // ══════════════════════════════════════════════
-    // ពិនិត្យមានផ្ទៃពោះ (Pregnancy Detection)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.keywords)) {
-        analysis.detectedFeatures.push('pregnant');
-        
-        // កំណត់ឈាមផ្ទៃពោះ (FIXED: Reduced modifiers for more realistic sizing)
-        if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.lateStage)) {
-            analysis.bustModifier += 4;   
-            analysis.waistModifier += 8;  
-            analysis.hipModifier += 5;    
-            analysis.detectedFeatures.push('late-pregnancy');
-        } else if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.midStage)) {
-            analysis.bustModifier += 3;   
-            analysis.waistModifier += 6;  
-            analysis.hipModifier += 4;    
-            analysis.detectedFeatures.push('mid-pregnancy');
-        } else if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.earlyStage)) {
-            analysis.bustModifier += 2;   
-            analysis.waistModifier += 3;  
-            analysis.hipModifier += 2;    
-            analysis.detectedFeatures.push('early-pregnancy');
-        } else if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.postpartum)) {
-            analysis.bustModifier += 2;   
-            analysis.waistModifier += 4;  
-            analysis.hipModifier += 3;    
-            analysis.detectedFeatures.push('postpartum');
-        } else {
-            // មានផ្ទៃពោះទូទៅ (គ្មានបញ្ជាក់ខែ)
-            analysis.bustModifier += 3;   
-            analysis.waistModifier += 6;  
-            analysis.hipModifier += 4;    
-        }
-    }
-    
-    // ══════════════════════════════════════════════
-    // រូបរាង (Body Shape Detection)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.hourglass)) {
-        analysis.bustModifier += 2;
-        analysis.waistModifier -= 2;
-        analysis.hipModifier += 3;
-        analysis.detectedFeatures.push('hourglass');
-    }
-    if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.pear)) {
-        analysis.bustModifier -= 1;
-        analysis.hipModifier += 3;
-        analysis.detectedFeatures.push('pear');
-    }
-    if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.apple)) {
-        analysis.waistModifier += 3;
-        analysis.detectedFeatures.push('apple');
-    }
-    if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.rectangle)) {
-        // រាងត្រង់ មិនត្រូវការ adjustment ច្រើនទេ
-        analysis.detectedFeatures.push('rectangle');
-    }
-    if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.inverted)) {
-        analysis.bustModifier += 2;
-        analysis.hipModifier -= 1;
-        analysis.detectedFeatures.push('inverted-triangle');
-    }
-    
-    // ══════════════════════════════════════════════
-    // រាងកាយទូទៅ (Overall Body Type)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.overall.plusSize)) {
-        analysis.overallSize += 1;
-        analysis.detectedFeatures.push('plus-size');
-    }
-    if (checkKeywords(lowerText, BODY_KEYWORDS.overall.slim)) {
-        analysis.overallSize -= 1;
-        analysis.detectedFeatures.push('slim');
-    }
-    
-    // ══════════════════════════════════════════════
-    // សាច់ដុំ & កីឡា (Muscular & Athletic)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.muscular.keywords)) {
-        analysis.bustModifier += 2;
-        analysis.waistModifier -= 2;
-        analysis.hipModifier += 1;
-        analysis.detectedFeatures.push('muscular');
-    }
-    
-    // ══════════════════════════════════════════════
-    // ទ្រូង (Bust)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.bust.large)) {
-        analysis.bustModifier += 3;
-        analysis.detectedFeatures.push('large-bust');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.bust.medium)) {
-        analysis.bustModifier += 1;
-        analysis.detectedFeatures.push('medium-bust');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.bust.small)) {
-        analysis.bustModifier -= 2;
-        analysis.detectedFeatures.push('small-bust');
-    }
-    
-    // ══════════════════════════════════════════════
-    // ចង្កេះ (Waist)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.waist.large)) {
-        analysis.waistModifier += 3;
-        analysis.detectedFeatures.push('large-waist');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.waist.medium)) {
-        analysis.waistModifier += 1;
-        analysis.detectedFeatures.push('medium-waist');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.waist.small)) {
-        analysis.waistModifier -= 2;
-        analysis.detectedFeatures.push('small-waist');
-    }
-    
-    // ══════════════════════════════════════════════
-    // ត្រគាក (Hip)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.hip.large)) {
-        analysis.hipModifier += 3;
-        analysis.detectedFeatures.push('large-hip');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.hip.medium)) {
-        analysis.hipModifier += 1;
-        analysis.detectedFeatures.push('medium-hip');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.hip.small)) {
-        analysis.hipModifier -= 2;
-        analysis.detectedFeatures.push('small-hip');
-    }
-    
-    // ══════════════════════════════════════════════
-    // ស្មា (Shoulders)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.shoulders.broad)) {
-        analysis.bustModifier += 2;
-        analysis.detectedFeatures.push('broad-shoulders');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.shoulders.narrow)) {
-        analysis.bustModifier -= 1;
-        analysis.detectedFeatures.push('narrow-shoulders');
-    }
-    
-    // ══════════════════════════════════════════════
-    // ជើង (Legs)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.legs.thick)) {
-        analysis.hipModifier += 1;
-        analysis.detectedFeatures.push('thick-legs');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.legs.slim)) {
-        analysis.hipModifier -= 1;
-        analysis.detectedFeatures.push('slim-legs');
-    }
-    
-    // ══════════════════════════════════════════════
-    // ដៃ (Arms)
-    // ══════════════════════════════════════════════
-    if (checkKeywords(lowerText, BODY_KEYWORDS.arms.thick)) {
-        analysis.bustModifier += 1;
-        analysis.detectedFeatures.push('thick-arms');
-    } else if (checkKeywords(lowerText, BODY_KEYWORDS.arms.slim)) {
-        analysis.bustModifier -= 1;
-        analysis.detectedFeatures.push('slim-arms');
-    }
-    
-    return analysis;
-}
+                // If no text, return the default values (all zeros)
+                if (!text) return analysis;
 
-// ===========================================
-// CALCULATION ENGINE
-// ===========================================
-function calculateBMI(weight, height) {
-    return weight / ((height / 100) ** 2);
-}
+                const lowerText = text.toLowerCase();
 
-function estimateBodyMeasurements(height, weight, bmi) {
-    // IMPROVED Formula for Curve Lady system
-    // More accurate ratios for Asian women (Cambodian body proportions)
-    // Reduced coefficients for more realistic measurements
-    
-    // Base measurements (reduced from original)
-    let bust = height * 0.50 + weight * 0.30;   // Reduced from 0.53/0.4
-    let waist = height * 0.37 + weight * 0.28;  // Reduced from 0.44/0.35
-    let hip = height * 0.54 + weight * 0.35;    // Reduced from 0.57/0.42
-    
-    // BMI-based adjustments (FIXED: now actually using BMI parameter!)
-    if (bmi < 18.5) {
-        // Underweight - reduce measurements
-        bust -= 4;
-        waist -= 3;
-        hip -= 4;
-    } else if (bmi >= 25 && bmi < 30) {
-        // Overweight - increase proportionally
-        bust += 3;
-        waist += 5;
-        hip += 3;
-    } else if (bmi >= 30) {
-        // Obese - increase more
-        bust += 6;
-        waist += 8;
-        hip += 6;
-    }
-    
-    // Ensure proper body proportions
-    // Waist should be smaller than bust (healthy proportion)
-    const minWaistRatio = 0.70; // Waist ≤ 70% of bust
-    const maxWaist = bust * minWaistRatio;
-    if (waist > maxWaist) {
-        waist = maxWaist;
-    }
-    
-    return {
-        bust: Math.round(bust),
-        waist: Math.round(waist),
-        hip: Math.round(hip)
-    };
-}
+                // ══════════════════════════════════════════════
+                // ពិនិត្យមានផ្ទៃពោះ (Pregnancy Detection)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.keywords)) {
+                    analysis.detectedFeatures.push('pregnant');
 
-function findMatchingSizesFromDatabase(height, weight, bust, waist, hip) {
-    const matches = [];
-    
-    for (const buyer of BUYER_DATABASE) {
-        let score = 0;
-        let maxScore = 0;
-        
-        // Height matching (±8cm)
-        if (Math.abs(buyer.height - height) <= 8) {
-            score += (8 - Math.abs(buyer.height - height));
-            maxScore += 8;
-        }
-        
-        // Weight matching (±12kg)
-        if (Math.abs(buyer.weight - weight) <= 12) {
-            score += (12 - Math.abs(buyer.weight - weight));
-            maxScore += 12;
-        }
-        
-        // Bust matching if available
-        if (buyer.bust && bust) {
-            if (Math.abs(buyer.bust - bust) <= 10) {
-                score += (10 - Math.abs(buyer.bust - bust)) * 1.5;
-                maxScore += 15;
+                    // កំណត់ឈាមផ្ទៃពោះ (FIXED: Reduced modifiers for more realistic sizing)
+                    if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.lateStage)) {
+                        analysis.bustModifier += 4;
+                        analysis.waistModifier += 8;
+                        analysis.hipModifier += 5;
+                        analysis.detectedFeatures.push('late-pregnancy');
+                    } else if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.midStage)) {
+                        analysis.bustModifier += 3;
+                        analysis.waistModifier += 6;
+                        analysis.hipModifier += 4;
+                        analysis.detectedFeatures.push('mid-pregnancy');
+                    } else if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.earlyStage)) {
+                        analysis.bustModifier += 2;
+                        analysis.waistModifier += 3;
+                        analysis.hipModifier += 2;
+                        analysis.detectedFeatures.push('early-pregnancy');
+                    } else if (checkKeywords(lowerText, BODY_KEYWORDS.pregnant.modifiers.postpartum)) {
+                        analysis.bustModifier += 2;
+                        analysis.waistModifier += 4;
+                        analysis.hipModifier += 3;
+                        analysis.detectedFeatures.push('postpartum');
+                    } else {
+                        // មានផ្ទៃពោះទូទៅ (គ្មានបញ្ជាក់ខែ)
+                        analysis.bustModifier += 3;
+                        analysis.waistModifier += 6;
+                        analysis.hipModifier += 4;
+                    }
+                }
+
+                // ══════════════════════════════════════════════
+                // រូបរាង (Body Shape Detection)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.hourglass)) {
+                    analysis.bustModifier += 2;
+                    analysis.waistModifier -= 2;
+                    analysis.hipModifier += 3;
+                    analysis.detectedFeatures.push('hourglass');
+                }
+                if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.pear)) {
+                    analysis.bustModifier -= 1;
+                    analysis.hipModifier += 3;
+                    analysis.detectedFeatures.push('pear');
+                }
+                if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.apple)) {
+                    analysis.waistModifier += 3;
+                    analysis.detectedFeatures.push('apple');
+                }
+                if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.rectangle)) {
+                    // រាងត្រង់ មិនត្រូវការ adjustment ច្រើនទេ
+                    analysis.detectedFeatures.push('rectangle');
+                }
+                if (checkKeywords(lowerText, BODY_KEYWORDS.bodyShape.inverted)) {
+                    analysis.bustModifier += 2;
+                    analysis.hipModifier -= 1;
+                    analysis.detectedFeatures.push('inverted-triangle');
+                }
+
+                // ══════════════════════════════════════════════
+                // រាងកាយទូទៅ (Overall Body Type)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.overall.plusSize)) {
+                    analysis.overallSize += 1;
+                    analysis.detectedFeatures.push('plus-size');
+                }
+                if (checkKeywords(lowerText, BODY_KEYWORDS.overall.slim)) {
+                    analysis.overallSize -= 1;
+                    analysis.detectedFeatures.push('slim');
+                }
+
+                // ══════════════════════════════════════════════
+                // សាច់ដុំ & កីឡា (Muscular & Athletic)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.muscular.keywords)) {
+                    analysis.bustModifier += 2;
+                    analysis.waistModifier -= 2;
+                    analysis.hipModifier += 1;
+                    analysis.detectedFeatures.push('muscular');
+                }
+
+                // ══════════════════════════════════════════════
+                // ទ្រូង (Bust)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.bust.large)) {
+                    analysis.bustModifier += 3;
+                    analysis.detectedFeatures.push('large-bust');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.bust.medium)) {
+                    analysis.bustModifier += 1;
+                    analysis.detectedFeatures.push('medium-bust');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.bust.small)) {
+                    analysis.bustModifier -= 2;
+                    analysis.detectedFeatures.push('small-bust');
+                }
+
+                // ══════════════════════════════════════════════
+                // ចង្កេះ (Waist)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.waist.large)) {
+                    analysis.waistModifier += 3;
+                    analysis.detectedFeatures.push('large-waist');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.waist.medium)) {
+                    analysis.waistModifier += 1;
+                    analysis.detectedFeatures.push('medium-waist');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.waist.small)) {
+                    analysis.waistModifier -= 2;
+                    analysis.detectedFeatures.push('small-waist');
+                }
+
+                // ══════════════════════════════════════════════
+                // ត្រគាក (Hip)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.hip.large)) {
+                    analysis.hipModifier += 3;
+                    analysis.detectedFeatures.push('large-hip');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.hip.medium)) {
+                    analysis.hipModifier += 1;
+                    analysis.detectedFeatures.push('medium-hip');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.hip.small)) {
+                    analysis.hipModifier -= 2;
+                    analysis.detectedFeatures.push('small-hip');
+                }
+
+                // ══════════════════════════════════════════════
+                // ស្មា (Shoulders)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.shoulders.broad)) {
+                    analysis.bustModifier += 2;
+                    analysis.detectedFeatures.push('broad-shoulders');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.shoulders.narrow)) {
+                    analysis.bustModifier -= 1;
+                    analysis.detectedFeatures.push('narrow-shoulders');
+                }
+
+                // ══════════════════════════════════════════════
+                // ជើង (Legs)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.legs.thick)) {
+                    analysis.hipModifier += 1;
+                    analysis.detectedFeatures.push('thick-legs');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.legs.slim)) {
+                    analysis.hipModifier -= 1;
+                    analysis.detectedFeatures.push('slim-legs');
+                }
+
+                // ══════════════════════════════════════════════
+                // ដៃ (Arms)
+                // ══════════════════════════════════════════════
+                if (checkKeywords(lowerText, BODY_KEYWORDS.arms.thick)) {
+                    analysis.bustModifier += 1;
+                    analysis.detectedFeatures.push('thick-arms');
+                } else if (checkKeywords(lowerText, BODY_KEYWORDS.arms.slim)) {
+                    analysis.bustModifier -= 1;
+                    analysis.detectedFeatures.push('slim-arms');
+                }
+
+                return analysis;
             }
-        }
-        
-        if (maxScore > 0) {
-            const confidence = (score / maxScore) * 100;
-            if (confidence > 40) {
-                matches.push({
-                    size: buyer.size,
-                    confidence: Math.round(confidence),
-                    buyer: buyer
+
+            // ===========================================
+            // CALCULATION ENGINE
+            // ===========================================
+            function calculateBMI(weight, height) {
+                return weight / ((height / 100) ** 2);
+            }
+
+            function estimateBodyMeasurements(height, weight, bmi) {
+                // IMPROVED Formula for Curve Lady system
+                // More accurate ratios for Asian women (Cambodian body proportions)
+                // Reduced coefficients for more realistic measurements
+
+                // Base measurements (reduced from original)
+                let bust = height * 0.50 + weight * 0.30;   // Reduced from 0.53/0.4
+                let waist = height * 0.37 + weight * 0.28;  // Reduced from 0.44/0.35
+                let hip = height * 0.54 + weight * 0.35;    // Reduced from 0.57/0.42
+
+                // BMI-based adjustments (FIXED: now actually using BMI parameter!)
+                if (bmi < 18.5) {
+                    // Underweight - reduce measurements
+                    bust -= 4;
+                    waist -= 3;
+                    hip -= 4;
+                } else if (bmi >= 25 && bmi < 30) {
+                    // Overweight - increase proportionally
+                    bust += 3;
+                    waist += 5;
+                    hip += 3;
+                } else if (bmi >= 30) {
+                    // Obese - increase more
+                    bust += 6;
+                    waist += 8;
+                    hip += 6;
+                }
+
+                // Ensure proper body proportions
+                // Waist should be smaller than bust (healthy proportion)
+                const minWaistRatio = 0.70; // Waist ≤ 70% of bust
+                const maxWaist = bust * minWaistRatio;
+                if (waist > maxWaist) {
+                    waist = maxWaist;
+                }
+
+                return {
+                    bust: Math.round(bust),
+                    waist: Math.round(waist),
+                    hip: Math.round(hip)
+                };
+            }
+
+            function findMatchingSizesFromDatabase(height, weight, bust, waist, hip) {
+                const matches = [];
+
+                for (const buyer of BUYER_DATABASE) {
+                    let score = 0;
+                    let maxScore = 0;
+
+                    // Height matching (±8cm)
+                    if (Math.abs(buyer.height - height) <= 8) {
+                        score += (8 - Math.abs(buyer.height - height));
+                        maxScore += 8;
+                    }
+
+                    // Weight matching (±12kg)
+                    if (Math.abs(buyer.weight - weight) <= 12) {
+                        score += (12 - Math.abs(buyer.weight - weight));
+                        maxScore += 12;
+                    }
+
+                    // Bust matching if available
+                    if (buyer.bust && bust) {
+                        if (Math.abs(buyer.bust - bust) <= 10) {
+                            score += (10 - Math.abs(buyer.bust - bust)) * 1.5;
+                            maxScore += 15;
+                        }
+                    }
+
+                    if (maxScore > 0) {
+                        const confidence = (score / maxScore) * 100;
+                        if (confidence > 40) {
+                            matches.push({
+                                size: buyer.size,
+                                confidence: Math.round(confidence),
+                                buyer: buyer
+                            });
+                        }
+                    }
+                }
+
+                matches.sort((a, b) => b.confidence - a.confidence);
+                return matches;
+            }
+
+            function calculateFinalSize(height, weight, bust, waist, hip, bodyAnalysis, fitPref, brand) {
+                // PROVEN ALGORITHM from Curve Lady system
+                // Weight-based matching with measurement validation
+
+                const sizes = SIZE_CHART;
+                let bestMatch = null;
+                let minScore = Infinity;
+
+                Object.keys(sizes).forEach(sizeName => {
+                    const size = sizes[sizeName];
+
+                    // Primary: Check weight range (most important!)
+                    if (size.weight) {
+                        const weightInRange = weight >= size.weight[0] && weight <= size.weight[1];
+                        if (!weightInRange) {
+                            // Weight outside range = skip this size
+                            return;
+                        }
+                    }
+
+                    // Secondary: Calculate measurement fit score
+                    const bustMid = (size.bust[0] + size.bust[1]) / 2;
+                    const waistMid = (size.waist[0] + size.waist[1]) / 2;
+                    const hipMid = (size.hip[0] + size.hip[1]) / 2;
+
+                    // Score calculation (weight: 40%, measurements: 60%)
+                    const measureDiff = Math.abs(bust - bustMid) +
+                        Math.abs(waist - waistMid) +
+                        Math.abs(hip - hipMid);
+
+                    const weightDiff = size.weight ?
+                        Math.abs(weight - (size.weight[0] + size.weight[1]) / 2) * 3 : 0;
+
+                    const score = measureDiff + weightDiff;
+
+                    if (score < minScore) {
+                        minScore = score;
+                        bestMatch = sizeName;
+                    }
                 });
-            }
-        }
-    }
-    
-    matches.sort((a, b) => b.confidence - a.confidence);
-    return matches;
-}
 
-function findSizeFromChart(measurement, type) {
-    for (const size of SIZE_ORDER) {
-        const range = SIZE_CHART[size][type];
-        if (range && measurement >= range[0] && measurement <= range[1]) {
-            return size;
-        }
-    }
-    
-    // If measurement is below smallest size
-    for (const size of SIZE_ORDER) {
-        const range = SIZE_CHART[size][type];
-        if (range && measurement < range[0]) {
-            return size;
-        }
-    }
-    
-    // If measurement is above largest size
-    return SIZE_ORDER[SIZE_ORDER.length - 1];
-}
-
-function calculateFinalSize(height, weight, bust, waist, hip, bodyAnalysis, fitPref, brand) {
-    // PROVEN ALGORITHM from Curve Lady system
-    // Weight-based matching with measurement validation
-    
-    const sizes = SIZE_CHART;
-    let bestMatch = null;
-    let minScore = Infinity;
-    
-    Object.keys(sizes).forEach(sizeName => {
-        const size = sizes[sizeName];
-        
-        // Primary: Check weight range (most important!)
-        if (size.weight) {
-            const weightInRange = weight >= size.weight[0] && weight <= size.weight[1];
-            if (!weightInRange) {
-                // Weight outside range = skip this size
-                return;
-            }
-        }
-        
-        // Secondary: Calculate measurement fit score
-        const bustMid = (size.bust[0] + size.bust[1]) / 2;
-        const waistMid = (size.waist[0] + size.waist[1]) / 2;
-        const hipMid = (size.hip[0] + size.hip[1]) / 2;
-        
-        // Score calculation (weight: 40%, measurements: 60%)
-        const measureDiff = Math.abs(bust - bustMid) + 
-                            Math.abs(waist - waistMid) + 
-                            Math.abs(hip - hipMid);
-        
-        const weightDiff = size.weight ? 
-                          Math.abs(weight - (size.weight[0] + size.weight[1]) / 2) * 3 : 0;
-        
-        const score = measureDiff + weightDiff;
-        
-        if (score < minScore) {
-            minScore = score;
-            bestMatch = sizeName;
-        }
-    });
-    
-    // Fallback: if no match found, use weight-only
-    if (!bestMatch) {
-        Object.keys(sizes).forEach(sizeName => {
-            const size = sizes[sizeName];
-            if (size.weight && weight >= size.weight[0] && weight <= size.weight[1]) {
-                bestMatch = sizeName;
-            }
-        });
-    }
-    
-    // Still no match? Use closest weight
-    if (!bestMatch) {
-        let minWeightDiff = Infinity;
-        Object.keys(sizes).forEach(sizeName => {
-            const size = sizes[sizeName];
-            if (size.weight) {
-                const avgWeight = (size.weight[0] + size.weight[1]) / 2;
-                const diff = Math.abs(weight - avgWeight);
-                if (diff < minWeightDiff) {
-                    minWeightDiff = diff;
-                    bestMatch = sizeName;
+                // Fallback: if no match found, use weight-only
+                if (!bestMatch) {
+                    Object.keys(sizes).forEach(sizeName => {
+                        const size = sizes[sizeName];
+                        if (size.weight && weight >= size.weight[0] && weight <= size.weight[1]) {
+                            bestMatch = sizeName;
+                        }
+                    });
                 }
-            }
-        });
-    }
-    
-    // ULTIMATE SAFEGUARD: If still no match, use default based on weight
-    if (!bestMatch) {
-        if (weight < 45) bestMatch = 'XXS';
-        else if (weight < 55) bestMatch = 'XS';
-        else if (weight < 65) bestMatch = 'S';
-        else if (weight < 75) bestMatch = 'M';
-        else if (weight < 90) bestMatch = 'L';
-        else bestMatch = 'XL';
-    }
-    
-    let baseSizeIndex = SIZE_ORDER.indexOf(bestMatch);
-    
-    // SAFEGUARD: Ensure valid index
-    if (baseSizeIndex === -1) {
-        baseSizeIndex = 1; // Default to XS
-    }
-    
-    // Apply body description modifiers (ONLY IN AI MODE)
-    // FIXED: Now handles both positive AND negative modifiers!
-    if (calculationMode === 'ai') {
-        const SIZE_INCREMENT_CM = 5; // Average cm difference between consecutive sizes
-        
-        // Bust modifier (handles positive and negative)
-        if (bodyAnalysis.bustModifier !== 0) {
-            const adjustment = Math.ceil(Math.abs(bodyAnalysis.bustModifier) / SIZE_INCREMENT_CM);
-            baseSizeIndex += (bodyAnalysis.bustModifier > 0 ? adjustment : -adjustment);
-        }
-        
-        // Waist modifier (handles positive and negative)
-        if (bodyAnalysis.waistModifier !== 0) {
-            const adjustment = Math.ceil(Math.abs(bodyAnalysis.waistModifier) / SIZE_INCREMENT_CM);
-            baseSizeIndex += (bodyAnalysis.waistModifier > 0 ? adjustment : -adjustment);
-        }
-        
-        // Hip modifier (handles positive and negative)
-        if (bodyAnalysis.hipModifier !== 0) {
-            const adjustment = Math.ceil(Math.abs(bodyAnalysis.hipModifier) / SIZE_INCREMENT_CM);
-            baseSizeIndex += (bodyAnalysis.hipModifier > 0 ? adjustment : -adjustment);
-        }
-        
-        // Overall size adjustment
-        if (bodyAnalysis.overallSize > 0) baseSizeIndex += 1;
-        if (bodyAnalysis.overallSize < 0) baseSizeIndex -= 1;
-        
-        // Clamp to valid range
-        baseSizeIndex = Math.max(0, Math.min(baseSizeIndex, SIZE_ORDER.length - 1));
-    }
-    
-    // Apply fit preference
-    if (fitPref === '0') baseSizeIndex = Math.max(baseSizeIndex - 1, 0); // Tight fit
-    else if (fitPref === '2') baseSizeIndex = Math.min(baseSizeIndex + 1, SIZE_ORDER.length - 1); // Loose fit
-    
-    // Brand adjustment (Shein/Temu tend to run smaller)
-    if (brand === 'Shein' || brand === 'Temu') {
-        baseSizeIndex = Math.min(baseSizeIndex + 1, SIZE_ORDER.length - 1);
-    }
-    
-    const baseSize = SIZE_ORDER[baseSizeIndex];
-    
-    // Get database matches (ONLY IN AI MODE)
-    let dbMatches = [];
-    let confidence = 'មធ្យម';
-    let confidenceScore = 60;
-    let source = 'calculation';
-    
-    if (calculationMode === 'ai') {
-        dbMatches = findMatchingSizesFromDatabase(height, weight, bust, waist, hip);
-        source = 'ai';
-        
-        // Calculate confidence based on actual matches
-        if (dbMatches.length === 0) {
-            confidence = 'មធ្យម';
-            confidenceScore = 60;
-        } else if (dbMatches.length === 1) {
-            confidence = 'មធ្យម';
-            confidenceScore = 70;
-        } else if (dbMatches.length >= 2) {
-            confidence = 'ខ្ពស់';
-            confidenceScore = 85;
-            // If best match agrees with our calculation
-            if (dbMatches[0].size === baseSize) {
-                confidenceScore = 90;
-            }
-        }
-    } else {
-        // Normal mode - calculation only
-        confidence = 'ធម្មតា';
-        confidenceScore = 75;
-        source = 'weight_calculation';
-    }
-    
-    return {
-        perfectSize: baseSize,
-        tightSize: baseSizeIndex > 0 ? SIZE_ORDER[baseSizeIndex - 1] : baseSize,
-        looseSize: baseSizeIndex < SIZE_ORDER.length - 1 ? SIZE_ORDER[baseSizeIndex + 1] : baseSize,
-        confidence: confidence,
-        confidenceScore: confidenceScore,
-        dbMatches: dbMatches.slice(0, 3),
-        source: source,
-        mode: calculationMode
-    };
-}
 
-// ===========================================
-// New calculation
-document.getElementById('newCalcBtn').addEventListener('click', function() {
-    document.getElementById('result').classList.remove('show');
-    document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
-});
+                // Still no match? Use closest weight
+                if (!bestMatch) {
+                    let minWeightDiff = Infinity;
+                    Object.keys(sizes).forEach(sizeName => {
+                        const size = sizes[sizeName];
+                        if (size.weight) {
+                            const avgWeight = (size.weight[0] + size.weight[1]) / 2;
+                            const diff = Math.abs(weight - avgWeight);
+                            if (diff < minWeightDiff) {
+                                minWeightDiff = diff;
+                                bestMatch = sizeName;
+                            }
+                        }
+                    });
+                }
 
-// Copy results
-document.getElementById('copyBtn').addEventListener('click', function() {
-    if (!lastCalculation) {
-        alert('❌ មិនមានទិន្នន័យដែលត្រូវចម្លង');
-        return;
-    }
-    
-    const c = lastCalculation;
-    const standardName = c.standard === 'KH' ? '🇰🇭 កម្ពុជា/អាស៊ី' : 
-                         c.standard === 'US' ? '🇺🇸 អាមេរិក' : 
-                         c.standard === 'EU' ? '🇪🇺 អឺរ៉ុប' : '🇬🇧 អង់គ្លេស';
-    
-    const text = `📏 គណនាទំហំសម្លៀកបំពាក់
+                // ULTIMATE SAFEGUARD: If still no match, use default based on weight
+                if (!bestMatch) {
+                    if (weight < 45) bestMatch = 'XXS';
+                    else if (weight < 55) bestMatch = 'XS';
+                    else if (weight < 65) bestMatch = 'S';
+                    else if (weight < 75) bestMatch = 'M';
+                    else if (weight < 90) bestMatch = 'L';
+                    else bestMatch = 'XL';
+                }
+
+                let baseSizeIndex = SIZE_ORDER.indexOf(bestMatch);
+
+                // SAFEGUARD: Ensure valid index
+                if (baseSizeIndex === -1) {
+                    baseSizeIndex = 1; // Default to XS
+                }
+
+                // Apply body description modifiers (ONLY IN AI MODE)
+                // FIXED: Now handles both positive AND negative modifiers!
+                if (calculationMode === 'ai') {
+                    const SIZE_INCREMENT_CM = 5;
+                    const MAX_AI_ADJUSTMENT = 2; // Hard cap: AI shifts max ±2 sizes only
+
+                    let totalAdjustment = 0;
+
+                    if (bodyAnalysis.bustModifier !== 0) {
+                        totalAdjustment += Math.ceil(Math.abs(bodyAnalysis.bustModifier) / SIZE_INCREMENT_CM)
+                            * (bodyAnalysis.bustModifier > 0 ? 1 : -1);
+                    }
+                    if (bodyAnalysis.waistModifier !== 0) {
+                        totalAdjustment += Math.ceil(Math.abs(bodyAnalysis.waistModifier) / SIZE_INCREMENT_CM)
+                            * (bodyAnalysis.waistModifier > 0 ? 1 : -1);
+                    }
+                    if (bodyAnalysis.hipModifier !== 0) {
+                        totalAdjustment += Math.ceil(Math.abs(bodyAnalysis.hipModifier) / SIZE_INCREMENT_CM)
+                            * (bodyAnalysis.hipModifier > 0 ? 1 : -1);
+                    }
+                    if (bodyAnalysis.overallSize > 0) totalAdjustment += 1;
+                    if (bodyAnalysis.overallSize < 0) totalAdjustment -= 1;
+
+                    // Apply cap before modifying index
+                    totalAdjustment = Math.max(-MAX_AI_ADJUSTMENT, Math.min(MAX_AI_ADJUSTMENT, totalAdjustment));
+                    baseSizeIndex += totalAdjustment;
+                    baseSizeIndex = Math.max(0, Math.min(baseSizeIndex, SIZE_ORDER.length - 1));
+                }
+
+                // Save TRUE body size (never modified by fit/brand)
+                const bodyIndex = baseSizeIndex;
+
+                // Calculate RECOMMENDED purchase index (separate from body size)
+                // recommendedIndex tracked for potential future use
+                // Currently recommendedFit label drives UI badge display
+                let recommendedFit = 'perfect';
+
+                if (fitPref === '0') {
+                    recommendedFit = 'tight';
+                } else if (fitPref === '2') {
+                    recommendedFit = 'loose';
+                }
+
+                if (brand === 'Shein' || brand === 'Temu') {
+                    if (recommendedFit === 'perfect') recommendedFit = 'loose';
+                }
+
+                const baseSize = SIZE_ORDER[bodyIndex]; // TRUE body size always
+
+                // Get database matches (ONLY IN AI MODE)
+                let dbMatches = [];
+                let confidence = 'មធ្យម';
+                let confidenceScore = 60;
+                let source = 'calculation';
+
+                if (calculationMode === 'ai') {
+                    dbMatches = findMatchingSizesFromDatabase(height, weight, bust, waist, hip);
+                    source = 'ai';
+
+                    // Calculate confidence based on actual matches
+                    if (dbMatches.length === 0) {
+                        confidence = 'មធ្យម';
+                        confidenceScore = 60;
+                    } else if (dbMatches.length === 1) {
+                        confidence = 'មធ្យម';
+                        confidenceScore = 70;
+                    } else if (dbMatches.length >= 2) {
+                        confidence = 'ខ្ពស់';
+                        confidenceScore = 85;
+                        // If best match agrees with our calculation
+                        if (dbMatches[0].size === baseSize) {
+                            confidenceScore = 90;
+                        }
+                    }
+                } else {
+                    // Normal mode - calculation only
+                    confidence = 'ធម្មតា';
+                    confidenceScore = 75;
+                    source = 'weight_calculation';
+                }
+
+                return {
+                    perfectSize: baseSize,
+                    tightSize: bodyIndex > 0 ? SIZE_ORDER[bodyIndex - 1] : baseSize,
+                    looseSize: bodyIndex < SIZE_ORDER.length - 1 ? SIZE_ORDER[bodyIndex + 1] : baseSize,
+                    recommendedFit: recommendedFit,
+                    confidence: confidence,
+                    confidenceScore: confidenceScore,
+                    dbMatches: dbMatches.slice(0, 3),
+                    source: source,
+                    mode: calculationMode
+                };
+            }
+
+            // ===========================================
+            // New calculation
+            document.getElementById('newCalcBtn').addEventListener('click', function () {
+                document.getElementById('result').classList.remove('show');
+                document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Copy results
+            document.getElementById('copyBtn').addEventListener('click', function () {
+                if (!lastCalculation) {
+                    alert('❌ មិនមានទិន្នន័យដែលត្រូវចម្លង');
+                    return;
+                }
+
+                const c = lastCalculation;
+                const standardName = c.standard === 'KH' ? '🇰🇭 កម្ពុជា/អាស៊ី' :
+                    c.standard === 'US' ? '🇺🇸 អាមេរិក' :
+                        c.standard === 'EU' ? '🇪🇺 អឺរ៉ុប' : '🇬🇧 អង់គ្លេស';
+
+                const text = `📏 គណនាទំហំសម្លៀកបំពាក់
 ━━━━━━━━━━━━━━━━━━━━
 📐 ${standardName}
 
@@ -2773,27 +2814,27 @@ ${c.mode === 'ai' ? '🤖 AI Mode (ភាពជឿជាក់ ' + c.confidenceS
 ━━━━━━━━━━━━━━━━━━━━
 Generated by Curve Lady Calculator
 Professional Size Calculator by Norn`;
-    
-    navigator.clipboard.writeText(text).then(() => {
-        alert('📋 ចម្លងលទ្ធផលរួចរាល់!');
-    }).catch(() => {
-        alert('❌ មិនអាចចម្លងបាន');
-    });
-});
 
-// Share results
-document.getElementById('shareBtn').addEventListener('click', function() {
-    if (!lastCalculation) {
-        alert('❌ មិនមានទិន្នន័យដែលត្រូវចែករំលែក');
-        return;
-    }
-    
-    const c = lastCalculation;
-    const standardName = c.standard === 'KH' ? '🇰🇭 កម្ពុជា/អាស៊ី' : 
-                         c.standard === 'US' ? '🇺🇸 អាមេរិក' : 
-                         c.standard === 'EU' ? '🇪🇺 អឺរ៉ុប' : '🇬🇧 អង់គ្លេស';
-    
-    const text = `📏 គណនាទំហំសម្លៀកបំពាក់
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('📋 ចម្លងលទ្ធផលរួចរាល់!');
+                }).catch(() => {
+                    alert('❌ មិនអាចចម្លងបាន');
+                });
+            });
+
+            // Share results
+            document.getElementById('shareBtn').addEventListener('click', function () {
+                if (!lastCalculation) {
+                    alert('❌ មិនមានទិន្នន័យដែលត្រូវចែករំលែក');
+                    return;
+                }
+
+                const c = lastCalculation;
+                const standardName = c.standard === 'KH' ? '🇰🇭 កម្ពុជា/អាស៊ី' :
+                    c.standard === 'US' ? '🇺🇸 អាមេរិក' :
+                        c.standard === 'EU' ? '🇪🇺 អឺរ៉ុប' : '🇬🇧 អង់គ្លេស';
+
+                const text = `📏 គណនាទំហំសម្លៀកបំពាក់
 ━━━━━━━━━━━━━━━━━━━━
 📐 ${standardName}
 
@@ -2820,111 +2861,115 @@ ${c.mode === 'ai' ? '🤖 AI Mode (ភាពជឿជាក់ ' + c.confidenceS
 ━━━━━━━━━━━━━━━━━━━━
 Generated by Curve Lady Calculator
 Professional Size Calculator by Norn`;
-    
-    if (navigator.share) {
-        navigator.share({
-            title: 'Curve Lady Calculator',
-            text: text
-        }).catch(err => console.log('Share error:', err));
-    } else {
-        navigator.clipboard.writeText(text).then(() => {
-            alert('📋 ចម្លងរួចរាល់! អ្នកអាចចែករំលែកបាន');
-        });
-    }
-});
 
-// FORM SUBMISSION
-// ===========================================
-document.getElementById('form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get and convert inputs
-    let height = khmerToNum(document.getElementById('h').value);
-    let weight = khmerToNum(document.getElementById('w').value);
-    
-    if (!height || !weight) {
-        alert('សូមបញ្ចូលកម្ពស់ និងទម្ងន់ត្រឹមត្រូវ!');
-        return;
-    }
-    
-    // Convert units if needed
-    height = convertToStandard(height, unitState.height, 'height');
-    weight = convertToStandard(weight, unitState.weight, 'weight');
-    
-    // Validate ranges (FIXED: Added XXS support - weight 35-180kg)
-    if (height < 140 || height > 200 || weight < 35 || weight > 180) {
-        alert('សូមពិនិត្យកម្ពស់ (140-200 cm) និងទម្ងន់ (35-180 kg) ឡើងវិញ!');
-        return;
-    }
-    
-    // Get other inputs
-    const description = document.getElementById('desc').value;
-    const standard = document.getElementById('std').value;
-    const fitPref = document.getElementById('fit').value;
-    const brand = document.getElementById('brand').value;
-    
-    // Get manual measurements or use null
-    let bust = khmerToNum(document.getElementById('bust').value);
-    let waist = khmerToNum(document.getElementById('waist').value);
-    let hip = khmerToNum(document.getElementById('hip').value);
-    
-    // Convert measurement units if needed
-    if (bust) bust = convertToStandard(bust, unitState.bust, 'measurement');
-    if (waist) waist = convertToStandard(waist, unitState.waist, 'measurement');
-    if (hip) hip = convertToStandard(hip, unitState.hip, 'measurement');
-    
-    // Track which measurements were manually entered
-    const hasManualBust = bust !== null;
-    const hasManualWaist = waist !== null;
-    const hasManualHip = hip !== null;
-    const manualCount = [hasManualBust, hasManualWaist, hasManualHip].filter(Boolean).length;
-    
-    // Extract measurements from description
-    const extractedMeasurements = extractMeasurementsFromText(description);
-    
-    // Use extracted measurements if manual ones not provided
-    bust = bust || extractedMeasurements.bust || null;
-    waist = waist || extractedMeasurements.waist || null;
-    hip = hip || extractedMeasurements.hip || null;
-    
-    // Calculate BMI
-    const bmi = calculateBMI(weight, height);
-    
-    // Estimate missing measurements
-    const estimated = estimateBodyMeasurements(height, weight, bmi);
-    bust = bust || estimated.bust;
-    waist = waist || estimated.waist;
-    hip = hip || estimated.hip;
-    
-    // Determine measurements panel title and AI badge
-    let measurementsTitle = '';
-    let showAIBadge = false;
-    
-    if (manualCount === 0) {
-        // No manual inputs - AI estimation
-        measurementsTitle = 'ទំហំប៉ាន់ស្មានតាមតម្លៃ កម្ពស់ និងទម្ងន់';
-        showAIBadge = true;
-    } else if (manualCount === 3) {
-        // All 3 measurements provided
-        measurementsTitle = 'ទំហំទាំង ៣';
-        showAIBadge = false;
-    } else {
-        // Partial measurements
-        measurementsTitle = 'ទំហំប៉ាន់ស្មាន + ចំនុចដែលបានបញ្ចូល';
-        showAIBadge = false;
-    }
-    
-    // Analyze body description
-    const bodyAnalysis = analyzeBodyDescription(description);
-    
-    // Calculate final size
-    const result = calculateFinalSize(height, weight, bust, waist, hip, bodyAnalysis, fitPref, brand);
-    
-    // Display customer info in organized grid
-    const bmiStatus = bmi < 18.5 ? 'ស្គម' : bmi < 25 ? 'ធម្មតា' : bmi < 30 ? 'លើសទម្ងន់' : 'ធាត់';
-    const bmiClass = bmi < 18.5 ? 'bmi-underweight' : bmi < 25 ? 'bmi-normal' : bmi < 30 ? 'bmi-overweight' : 'bmi-obese';
-    
-    let custInfoHTML = `
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Curve Lady Calculator',
+                        text: text
+                    }).catch(err => console.log('Share error:', err));
+                } else {
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert('📋 ចម្លងរួចរាល់! អ្នកអាចចែករំលែកបាន');
+                    });
+                }
+            });
+
+            // FORM SUBMISSION
+            // ===========================================
+            document.getElementById('form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get and convert inputs
+                let height = khmerToNum(document.getElementById('h').value);
+                let weight = khmerToNum(document.getElementById('w').value);
+
+                if (!height || !weight) {
+                    alert('សូមបញ្ចូលកម្ពស់ និងទម្ងន់ត្រឹមត្រូវ!');
+                    return;
+                }
+
+                // Convert units if needed
+                height = convertToStandard(height, unitState.height, 'height');
+                weight = convertToStandard(weight, unitState.weight, 'weight');
+
+                // Auto-detect meter input → convert to cm (e.g. 1.6 → 160)
+                if (unitState.height === 'cm' && height >= 1.0 && height <= 2.5) {
+                    height = Math.round(height * 100);
+                }
+                // Validate ranges (FIXED: Added XXS support - weight 35-180kg)
+                if (height < 140 || height > 200 || weight < 35 || weight > 180) {
+                    alert('សូមពិនិត្យកម្ពស់ (140-200 cm) និងទម្ងន់ (35-180 kg) ឡើងវិញ!');
+                    return;
+                }
+
+                // Get other inputs
+                const description = document.getElementById('desc').value;
+                const standard = document.getElementById('std').value;
+                const fitPref = document.getElementById('fit').value;
+                const brand = document.getElementById('brand').value;
+
+                // Get manual measurements or use null
+                let bust = khmerToNum(document.getElementById('bust').value);
+                let waist = khmerToNum(document.getElementById('waist').value);
+                let hip = khmerToNum(document.getElementById('hip').value);
+
+                // Convert measurement units if needed
+                if (bust) bust = convertToStandard(bust, unitState.bust, 'measurement');
+                if (waist) waist = convertToStandard(waist, unitState.waist, 'measurement');
+                if (hip) hip = convertToStandard(hip, unitState.hip, 'measurement');
+
+                // Track which measurements were manually entered
+                const hasManualBust = bust !== null;
+                const hasManualWaist = waist !== null;
+                const hasManualHip = hip !== null;
+                const manualCount = [hasManualBust, hasManualWaist, hasManualHip].filter(Boolean).length;
+
+                // Extract measurements from description
+                const extractedMeasurements = extractMeasurementsFromText(description);
+
+                // Use extracted measurements if manual ones not provided
+                bust = bust || extractedMeasurements.bust || null;
+                waist = waist || extractedMeasurements.waist || null;
+                hip = hip || extractedMeasurements.hip || null;
+
+                // Calculate BMI
+                const bmi = calculateBMI(weight, height);
+
+                // Estimate missing measurements
+                const estimated = estimateBodyMeasurements(height, weight, bmi);
+                bust = bust || estimated.bust;
+                waist = waist || estimated.waist;
+                hip = hip || estimated.hip;
+
+                // Determine measurements panel title and AI badge
+                let measurementsTitle = '';
+                let showAIBadge = false;
+
+                if (manualCount === 0) {
+                    // No manual inputs - AI estimation
+                    measurementsTitle = 'ទំហំប៉ាន់ស្មានតាមតម្លៃ កម្ពស់ និងទម្ងន់';
+                    showAIBadge = true;
+                } else if (manualCount === 3) {
+                    // All 3 measurements provided
+                    measurementsTitle = 'ទំហំទាំង ៣';
+                    showAIBadge = false;
+                } else {
+                    // Partial measurements
+                    measurementsTitle = 'ទំហំប៉ាន់ស្មាន + ចំនុចដែលបានបញ្ចូល';
+                    showAIBadge = false;
+                }
+
+                // Analyze body description
+                const bodyAnalysis = analyzeBodyDescription(description);
+
+                // Calculate final size
+                const result = calculateFinalSize(height, weight, bust, waist, hip, bodyAnalysis, fitPref, brand);
+
+                // Display customer info in organized grid
+                const bmiStatus = bmi < 18.5 ? 'ស្គម' : bmi < 25 ? 'ធម្មតា' : bmi < 30 ? 'លើសទម្ងន់' : 'ធាត់';
+                const bmiClass = bmi < 18.5 ? 'bmi-underweight' : bmi < 25 ? 'bmi-normal' : bmi < 30 ? 'bmi-overweight' : 'bmi-obese';
+
+                let custInfoHTML = `
         <div class="modern-info-header">
             <div class="standard-badge">
                 ${standard === 'KH' ? '🇰🇭 កម្ពុជា/អាស៊ី' : standard === 'US' ? '🇺🇸 អាមេរិក' : standard === 'EU' ? '🇪🇺 អឺរ៉ុប' : '🇬🇧 អង់គ្លេស'}
@@ -2987,122 +3032,131 @@ document.getElementById('form').addEventListener('submit', function(e) {
             </div>
         </div>
     `;
-    
-    if (description) {
-        custInfoHTML += `<div class="description-box"><strong>📝 ការពិពណ៌នា:</strong> ${description}</div>`;
-    }
-    
-    document.getElementById('custInfo').innerHTML = custInfoHTML;
-    
-    // Display product info
-    if (brand || fitPref !== '1') {
-        let prodHTML = '';
-        if (brand) prodHTML += `<strong>ប្រភព:</strong> ${brand}<br>`;
-        prodHTML += `<strong>ការសម:</strong> ${fitLabels[fitPref]}`;
-        
-        document.getElementById('prodInfo').innerHTML = prodHTML;
-        document.getElementById('prodBox').style.display = 'block';
-    } else {
-        document.getElementById('prodBox').style.display = 'none';
-    }
-    
-    // Display size recommendations with better icons
-    const perfectDisplay = standard === 'KH' ? result.perfectSize : `${result.perfectSize} (${SIZE_CONVERSION[standard][result.perfectSize]})`;
-    const tightDisplay = standard === 'KH' ? result.tightSize : `${result.tightSize} (${SIZE_CONVERSION[standard][result.tightSize]})`;
-    const looseDisplay = standard === 'KH' ? result.looseSize : `${result.looseSize} (${SIZE_CONVERSION[standard][result.looseSize]})`;
-    
-    let sizesHTML = `
+
+                if (description) {
+                    const safeDesc = description
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;');
+                    custInfoHTML += `<div class="description-box"><strong>📝 ការពិពណ៌នា:</strong> ${safeDesc}</div>`;
+                }
+
+                document.getElementById('custInfo').innerHTML = custInfoHTML;
+
+                // Display product info
+                if (brand || fitPref !== '1') {
+                    let prodHTML = '';
+                    if (brand) prodHTML += `<strong>ប្រភព:</strong> ${brand}<br>`;
+                    prodHTML += `<strong>ការសម:</strong> ${fitLabels[fitPref]}`;
+
+                    document.getElementById('prodInfo').innerHTML = prodHTML;
+                    document.getElementById('prodBox').style.display = 'block';
+                } else {
+                    document.getElementById('prodBox').style.display = 'none';
+                }
+
+                // Display size recommendations with better icons
+                const perfectDisplay = standard === 'KH' ? result.perfectSize : `${result.perfectSize} (${SIZE_CONVERSION[standard][result.perfectSize]})`;
+                const tightDisplay = standard === 'KH' ? result.tightSize : `${result.tightSize} (${SIZE_CONVERSION[standard][result.tightSize]})`;
+                const looseDisplay = standard === 'KH' ? result.looseSize : `${result.looseSize} (${SIZE_CONVERSION[standard][result.looseSize]})`;
+
+                const recBadge = '<span style="background:#fbbf24;color:#78350f;font-size:9px;font-weight:800;padding:2px 6px;border-radius:8px;margin-left:4px;">⭐ ណែនាំ</span>';
+
+                let sizesHTML = `
         <div class="size-item perfect">
             <div>
-                <div class="size-label">🎯 សមល្មម</div>
-                <div class="size-reason">ស្របតាមការគណនា</div>
+                <div class="size-label">🎯 សមល្មម${result.recommendedFit === 'perfect' ? recBadge : ''}</div>
+                <div class="size-reason">ទំហំពិតប្រាកដរបស់រាងកាយ</div>
             </div>
             <div class="size-value">${perfectDisplay}</div>
         </div>
         <div class="size-item tight">
             <div>
-                <div class="size-label">📐 ចង្អៀតបន្តិច</div>
+                <div class="size-label">📐 ចង្អៀតបន្តិច${result.recommendedFit === 'tight' ? recBadge : ''}</div>
                 <div class="size-reason">សម្រាប់រាងតឹង និងចេញរាង</div>
             </div>
             <div class="size-value">${tightDisplay}</div>
         </div>
         <div class="size-item loose">
             <div>
-                <div class="size-label">📏 រលុងបន្តិច</div>
+                <div class="size-label">📏 រលុងបន្តិច${result.recommendedFit === 'loose' ? recBadge : ''}</div>
                 <div class="size-reason">ពាក់ស្រួល រលុង</div>
             </div>
             <div class="size-value">${looseDisplay}</div>
         </div>
     `;
-    
-    document.getElementById('sizes').innerHTML = sizesHTML;
-    
-    // Display confidence with source
-    let confidenceHTML = '';
-    
-    if (result.mode === 'ai') {
-        confidenceHTML = `🤖 <strong>AI Mode</strong> (ភាពជឿជាក់ ${result.confidenceScore}%)`;
-        confidenceHTML += `<br><span style="font-size: 11px; color: #6b7280;">`;
-        confidenceHTML += `🧠 វិភាគការពិពណ៌នារាងកាយ<br>`;
-        confidenceHTML += `📊 ប្រើ Smart Adjustments តាមបរិបទ<br>`;
-        confidenceHTML += `🎯 Optimized សម្រាប់ស្រ្តីកម្ពុជា (Curve Lady)`;
-        confidenceHTML += `</span>`;
-    } else {
-        confidenceHTML = `📊 <strong>ការគណនាធម្មតា</strong>`;
-        confidenceHTML += `<br><span style="font-size: 11px; color: #6b7280;">`;
-        confidenceHTML += `⚖️ ផ្អែកលើ Weight Range: ${Math.round(height)}cm/${Math.round(weight)}kg<br>`;
-        confidenceHTML += `📏 គណនាសាមញ្ញតាម Size Chart`;
-        confidenceHTML += `</span>`;
-    }
-    
-    document.getElementById('confidence').innerHTML = confidenceHTML;
-    
-    // Show results with animation
-    const resultDiv = document.getElementById('result');
-    resultDiv.classList.add('show');
-    
-    // Save calculation data for copy/share
-    lastCalculation = {
-        standard: standard,
-        height: height,
-        weight: weight,
-        bmi: bmi,
-        bmiStatus: bmiStatus,
-        bust: bust,
-        waist: waist,
-        hip: hip,
-        perfectSize: result.perfectSize,
-        tightSize: result.tightSize,
-        looseSize: result.looseSize,
-        mode: result.mode,
-        confidenceScore: result.confidenceScore,
-        measurementsTitle: measurementsTitle,
-        showAIBadge: showAIBadge
-    };
-    
-    // Save to history
-    addToHistory({
-        height: height,
-        weight: weight,
-        bust: bust,
-        waist: waist,
-        hip: hip,
-        size: result.perfectSize,
-        standard: standard
-    });
-    
-    // Scroll to results (smooth)
-    setTimeout(() => {
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 200);
-});
 
-// ===========================================
-// SERVICE WORKER REGISTRATION
-// ===========================================
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-}
-    </script>
+                document.getElementById('sizes').innerHTML = sizesHTML;
+
+                // Display confidence with source
+                let confidenceHTML = '';
+
+                if (result.mode === 'ai') {
+                    confidenceHTML = `🤖 <strong>AI Mode</strong> (ភាពជឿជាក់ ${result.confidenceScore}%)`;
+                    confidenceHTML += `<br><span style="font-size: 11px; color: #6b7280;">`;
+                    confidenceHTML += `🧠 វិភាគការពិពណ៌នារាងកាយ<br>`;
+                    confidenceHTML += `📊 ប្រើ Smart Adjustments តាមបរិបទ<br>`;
+                    confidenceHTML += `🎯 Optimized សម្រាប់ស្រ្តីកម្ពុជា (Curve Lady)`;
+                    confidenceHTML += `</span>`;
+                } else {
+                    confidenceHTML = `📊 <strong>ការគណនាធម្មតា</strong>`;
+                    confidenceHTML += `<br><span style="font-size: 11px; color: #6b7280;">`;
+                    confidenceHTML += `⚖️ ផ្អែកលើ Weight Range: ${Math.round(height)}cm/${Math.round(weight)}kg<br>`;
+                    confidenceHTML += `📏 គណនាសាមញ្ញតាម Size Chart`;
+                    confidenceHTML += `</span>`;
+                }
+
+                document.getElementById('confidence').innerHTML = confidenceHTML;
+
+                // Show results with animation
+                const resultDiv = document.getElementById('result');
+                resultDiv.classList.add('show');
+
+                // Save calculation data for copy/share
+                lastCalculation = {
+                    standard: standard,
+                    height: height,
+                    weight: weight,
+                    bmi: bmi,
+                    bmiStatus: bmiStatus,
+                    bust: bust,
+                    waist: waist,
+                    hip: hip,
+                    perfectSize: result.perfectSize,
+                    tightSize: result.tightSize,
+                    looseSize: result.looseSize,
+                    mode: result.mode,
+                    confidenceScore: result.confidenceScore,
+                    measurementsTitle: measurementsTitle,
+                    showAIBadge: showAIBadge
+                };
+
+                // Save to history
+                addToHistory({
+                    height: height,
+                    weight: weight,
+                    bust: bust,
+                    waist: waist,
+                    hip: hip,
+                    size: result.perfectSize,
+                    standard: standard
+                });
+
+                // Scroll to results (smooth)
+                setTimeout(() => {
+                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 200);
+            });
+
+            // ===========================================
+            // SERVICE WORKER REGISTRATION
+            // ===========================================
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js').catch(() => { });
+            }
+        </script>
+    </div><!-- /#app -->
 </body>
+
 </html>
