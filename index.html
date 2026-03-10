@@ -2618,28 +2618,31 @@
                     // SECONDARY 30%: weight as tiebreaker only
                     const weightScore = size.weight ? Math.abs(weight - weightMid) * 2 : 0;
 
-                    const totalScore = measureScore * 0.7 + weightScore * 0.3;
-
                     if (totalScore < minScore) {
                         minScore = totalScore;
                         bestMatch = sizeName;
                     }
                 });
 
-                // Safeguard only — never triggers with complete SIZE_CHART
                 if (!bestMatch) {
-                    if (weight < 45) bestMatch = 'XS';
-                    else if (weight < 60) bestMatch = 'S';
-                    else if (weight < 75) bestMatch = 'M';
-                    else bestMatch = 'L';
+                    let minDiff = Infinity;
+                    Object.keys(sizes).forEach(sizeName => {
+                        const size = sizes[sizeName];
+                        if (size.weight) {
+                            const diff = Math.abs(weight - (size.weight[0] + size.weight[1]) / 2);
+                            if (diff < minDiff) { minDiff = diff; bestMatch = sizeName; }
+                        }
+                    });
                 }
 
                 let baseSizeIndex = SIZE_ORDER.indexOf(bestMatch);
+                if (baseSizeIndex === -1) baseSizeIndex = 4; // Default to L
 
-                // SAFEGUARD: Ensure valid index
-                if (baseSizeIndex === -1) {
-                    baseSizeIndex = 1; // Default to XS
-                }
+                // HEIGHT CORRECTION: tall frame needs bigger garment
+                // Every 12cm deviation from 165cm norm = ±1 size, cap: -1 to +2
+                const heightShift = Math.round((height - 165) / 12);
+                baseSizeIndex += Math.max(-1, Math.min(2, heightShift));
+                baseSizeIndex = Math.max(0, Math.min(baseSizeIndex, SIZE_ORDER.length - 1));
 
                 // Apply body description modifiers (ONLY IN AI MODE)
                 // FIXED: Now handles both positive AND negative modifiers!
